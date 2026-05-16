@@ -8,33 +8,41 @@ const content = {
     projectIntroTitle: '项目介绍',
     backToProjects: '返回项目经历',
     certificateButton: '实习证明',
+    fileAreaTitle: '文件区',
     name: '刘广天',
     role: '27 届硕士毕业生',
-    website: '个人网站：https://liuguangtian.github.io/',
+    phone: '手机号：18832060103',
+    phoneHref: 'tel:+8618832060103',
     email: '邮箱：18832060103@163.com',
-    intro:
-      '能源科学与工程方向硕士研究生，具备新能源、电力系统、风电预测、储能优化、电气工程实践和 AI 辅助开发背景。',
     nav: [
-      { id: 'home', label: '首页' },
+      { id: 'home', label: '基本信息' },
       { id: 'education', label: '教育背景' },
       { id: 'experience', label: '实习经历' },
       { id: 'projects', label: '项目经历' },
       { id: 'skills', label: '专业技能' },
-      { id: 'other', label: '其他' },
-      { id: 'contact', label: '联系方式' },
+      { id: 'other', label: '荣誉获奖' },
     ],
     sections: {
       education: '教育背景',
       experience: '实习经历',
       projects: '项目经历',
       skills: '专业技能',
-      other: '其他',
-      contact: '联系方式',
+      other: '荣誉获奖',
     },
     education: {
       schools: [
-        '香港中文大学(深圳) 能源科学与工程（电气方向） 绩点：3.44/4 2025.09-2027.06',
-        '南京理工大学 新能源科学与工程 综合排名：9/56 2021.09-2025.06',
+        {
+          school: '香港中文大学(深圳)',
+          major: '能源科学与工程（电气方向）',
+          performance: '绩点：3.44/4',
+          time: '2025.09-2027.06',
+        },
+        {
+          school: '南京理工大学',
+          major: '新能源科学与工程',
+          performance: '综合排名：9/56',
+          time: '2021.09-2025.06',
+        },
       ],
       courses:
         '主修课程：电路理论、电力电子技术、电工学、半导体物理与器件、模拟电子技术、控制工程基础、机器人与智能系统、机器学习、智能电网、电力系统、风力发电系统与控制技术、风力机原理、光伏器件与系统、太阳能工程、储能原理与技术、传热传质学、工程热力学、流体力学',
@@ -44,7 +52,7 @@ const content = {
         time: '2025.06-2025.08',
         company: '北京北方华创微电子装备有限公司',
         position: '助理电气工程师',
-        certificateHref: '/naura-internship-certificate.pdf',
+        certificateHref: '/naura-proof.pdf',
         details: [
           '1.物料管理：新物料的申请、发布以及变更物料图纸的修改、检入、发布以及 BOM 的发布。',
           '2.电气开发：基于 SWE 完成电缆图、配线图的核对修正；基于中望 CAD 对图纸进行校对修正。',
@@ -62,6 +70,29 @@ const content = {
           '基于 Linux/ROS2 搭建仿真验证环境，完成 DexHand 灵巧手启动、RViz 可视化及基础关节运动测试；',
           '基于 Arduino Nano RP2040 Connect 开发板搭建多舵机控制系统，完成供电、布线及控制程序开发，实现简单抓握功能；',
         ],
+        showcase: {
+          media: [
+            {
+              type: 'image',
+              title: '灵巧手样机实物',
+              src: '/dexhand-prototype.png',
+              alt: 'DexHand 灵巧手样机实物',
+              fallback: '待上传：public/dexhand-prototype.png',
+            },
+            {
+              type: 'video',
+              title: 'Demo 展示',
+              src: '/dexhand-demo.mp4',
+              fallback: '待上传：public/dexhand-demo.mp4',
+            },
+          ],
+          files: [
+            { label: '开题报告', href: '/dexhand-opening-report.pdf' },
+            { label: '中期答辩', href: '/dexhand-midterm-defense.pdf' },
+            { label: '终期答辩', href: '/dexhand-final-defense.pdf' },
+            { label: '最终报告', href: '/dexhand-final-report.pdf' },
+          ],
+        },
       },
       {
         slug: 'wind-power-forecasting',
@@ -94,19 +125,8 @@ const content = {
       '专业软件：熟悉 MATLAB / Python 电力系统建模；SW、SWE、中望 CAD 等建模以及电气绘图；Fluent、OpenFAST 流体仿真',
     ],
     other:
-      '荣誉获奖：南京理工大学校级奖学金 4 次；“社会活动积极分子”称号等。',
-    contact: [
-      {
-        text: '邮箱：18832060103@163.com',
-        href: 'mailto:18832060103@163.com',
-      },
-      {
-        text: '个人网站：https://liuguangtian.github.io/',
-        href: 'https://liuguangtian.github.io/',
-      },
-      { text: 'GitHub：待补充', href: 'https://github.com/' },
-      { text: 'LinkedIn：待补充', href: 'https://www.linkedin.com/' },
-    ],
+      '南京理工大学校级奖学金 4 次；“社会活动积极分子”称号等。',
+    updatedAt: '更新时间：2026.05.16',
     footer: '© 2026 刘广天。保留所有权利。',
   },
   en: {
@@ -115,33 +135,41 @@ const content = {
     projectIntroTitle: 'Project Introduction',
     backToProjects: 'Back to Projects',
     certificateButton: 'Internship Certificate',
+    fileAreaTitle: 'Files',
     name: 'Guangtian Liu',
     role: "Master's Graduate, Class of 2027",
-    website: 'Personal Website: https://liuguangtian.github.io/',
+    phone: 'Phone: 18832060103',
+    phoneHref: 'tel:+8618832060103',
     email: 'Email: 18832060103@163.com',
-    intro:
-      "Master's student in Energy Science and Engineering with background in new energy, power systems, wind power forecasting, energy storage optimization, electrical engineering practice, and AI-assisted development.",
     nav: [
       { id: 'home', label: 'Home' },
       { id: 'education', label: 'Education' },
       { id: 'experience', label: 'Experience' },
       { id: 'projects', label: 'Projects' },
       { id: 'skills', label: 'Skills' },
-      { id: 'other', label: 'Other' },
-      { id: 'contact', label: 'Contact' },
+      { id: 'other', label: 'Honors' },
     ],
     sections: {
       education: 'Education',
       experience: 'Experience',
       projects: 'Projects',
       skills: 'Skills',
-      other: 'Other',
-      contact: 'Contact',
+      other: 'Honors',
     },
     education: {
       schools: [
-        'The Chinese University of Hong Kong, Shenzhen Energy Science and Engineering (Electrical Track) GPA: 3.44/4 2025.09-2027.06',
-        'Nanjing University of Science and Technology New Energy Science and Engineering Overall Ranking: 9/56 2021.09-2025.06',
+        {
+          school: 'The Chinese University of Hong Kong, Shenzhen',
+          major: 'Energy Science and Engineering (Electrical Track)',
+          performance: 'GPA: 3.44/4',
+          time: '2025.09-2027.06',
+        },
+        {
+          school: 'Nanjing University of Science and Technology',
+          major: 'New Energy Science and Engineering',
+          performance: 'Overall Ranking: 9/56',
+          time: '2021.09-2025.06',
+        },
       ],
       courses:
         'Major Courses: Circuit Theory, Power Electronics, Electrical Engineering, Semiconductor Physics and Devices, Analog Electronics, Fundamentals of Control Engineering, Robotics and Intelligent Systems, Machine Learning, Smart Grid, Power Systems, Wind Power Generation Systems and Control Technology, Principles of Wind Turbines, Photovoltaic Devices and Systems, Solar Energy Engineering, Energy Storage Principles and Technology, Heat and Mass Transfer, Engineering Thermodynamics, Fluid Mechanics',
@@ -151,7 +179,7 @@ const content = {
         time: '2025.06-2025.08',
         company: 'Beijing NAURA Microelectronics Equipment Co., Ltd.',
         position: 'Assistant Electrical Engineer',
-        certificateHref: '/naura-internship-certificate.pdf',
+        certificateHref: '/naura-proof.pdf',
         details: [
           '1. Material management: applied for and released new materials; revised, checked in, and released changed material drawings; released BOMs.',
           '2. Electrical development: checked and corrected cable diagrams and wiring diagrams based on SWE; checked and corrected drawings based on ZWCAD.',
@@ -169,6 +197,29 @@ const content = {
           'Built a simulation verification environment based on Linux/ROS2, and completed DexHand startup, RViz visualization, and basic joint motion tests;',
           'Built a multi-servo control system based on the Arduino Nano RP2040 Connect development board, completed power supply, wiring, and control program development, and implemented a simple grasping function;',
         ],
+        showcase: {
+          media: [
+            {
+              type: 'image',
+              title: 'Prototype',
+              src: '/dexhand-prototype.png',
+              alt: 'DexHand prototype',
+              fallback: 'Upload: public/dexhand-prototype.png',
+            },
+            {
+              type: 'video',
+              title: 'Demo',
+              src: '/dexhand-demo.mp4',
+              fallback: 'Upload: public/dexhand-demo.mp4',
+            },
+          ],
+          files: [
+            { label: 'Proposal', href: '/dexhand-opening-report.pdf' },
+            { label: 'Midterm Defense', href: '/dexhand-midterm-defense.pdf' },
+            { label: 'Final Defense', href: '/dexhand-final-defense.pdf' },
+            { label: 'Final Report', href: '/dexhand-final-report.pdf' },
+          ],
+        },
       },
       {
         slug: 'wind-power-forecasting',
@@ -202,21 +253,32 @@ const content = {
     ],
     other:
       'Honors and Awards: Nanjing University of Science and Technology university-level scholarship 4 times; title of “Social Activity Activist”, etc.',
-    contact: [
-      { text: 'Email: 18832060103@163.com', href: 'mailto:18832060103@163.com' },
-      {
-        text: 'Personal Website: https://liuguangtian.github.io/',
-        href: 'https://liuguangtian.github.io/',
-      },
-      { text: 'GitHub: To be added', href: 'https://github.com/' },
-      { text: 'LinkedIn: To be added', href: 'https://www.linkedin.com/' },
-    ],
+    updatedAt: 'Last updated: 2026.05.16',
     footer: '© 2026 Guangtian Liu. All rights reserved.',
   },
 }
 
 function SectionTitle({ children }) {
   return <h2 className="section-title">{children}</h2>
+}
+
+function ProjectMedia({ item }) {
+  const [hasError, setHasError] = useState(false)
+
+  return (
+    <article className="card media-card">
+      <h2>{item.title}</h2>
+      <div className="media-frame">
+        {hasError ? (
+          <div className="media-placeholder">{item.fallback}</div>
+        ) : item.type === 'video' ? (
+          <video src={item.src} controls preload="metadata" onError={() => setHasError(true)} />
+        ) : (
+          <img src={item.src} alt={item.alt} onError={() => setHasError(true)} />
+        )}
+      </div>
+    </article>
+  )
 }
 
 function ProjectDetail({ labels, project, onBack }) {
@@ -235,6 +297,25 @@ function ProjectDetail({ labels, project, onBack }) {
             ))}
           </div>
         </article>
+        {project.showcase ? (
+          <div className="project-detail-sections">
+            <div className="detail-media-grid">
+              {project.showcase.media.map((item) => (
+                <ProjectMedia item={item} key={item.title} />
+              ))}
+            </div>
+            <article className="card file-card">
+              <h2>{labels.fileAreaTitle}</h2>
+              <div className="file-grid">
+                {project.showcase.files.map((file) => (
+                  <a className="file-link" href={file.href} target="_blank" rel="noreferrer" key={file.href}>
+                    {file.label}
+                  </a>
+                ))}
+              </div>
+            </article>
+          </div>
+        ) : null}
       </div>
     </section>
   )
@@ -243,6 +324,7 @@ function ProjectDetail({ labels, project, onBack }) {
 function App() {
   const [language, setLanguage] = useState('zh')
   const [selectedProjectSlug, setSelectedProjectSlug] = useState(null)
+  const [photoLoaded, setPhotoLoaded] = useState(true)
   const t = content[language]
   const selectedProject = t.projects.find((project) => project.slug === selectedProjectSlug)
 
@@ -282,6 +364,10 @@ function App() {
     <div className="site" lang={language === 'zh' ? 'zh-CN' : 'en'}>
       <header className="topbar">
         <div className="nav-shell">
+          <p className="updated-at">{t.updatedAt}</p>
+          <button className="language-toggle" type="button" onClick={toggleLanguage}>
+            {t.languageButton}
+          </button>
           <a className="brand-link" href="#home" onClick={(event) => goToSection(event, 'home')}>
             {t.name}
           </a>
@@ -295,9 +381,6 @@ function App() {
               </a>
             ))}
           </nav>
-          <button className="language-toggle" type="button" onClick={toggleLanguage}>
-            {t.languageButton}
-          </button>
         </div>
       </header>
 
@@ -309,21 +392,29 @@ function App() {
             <section className="hero-section section" id="home">
               <div className="section-inner hero-layout">
                 <div className="hero-copy">
-                  <p className="eyebrow">{t.role}</p>
                   <h1>{t.name}</h1>
-                  <p className="hero-intro">{t.intro}</p>
+                  <p className="hero-role">{t.role}</p>
                   <div
                     className="hero-links"
                     aria-label={language === 'zh' ? '基础信息' : 'Basic information'}
                   >
-                    <a href="https://liuguangtian.github.io/" target="_blank" rel="noreferrer">
-                      {t.website}
-                    </a>
+                    <a href={t.phoneHref}>{t.phone}</a>
                     <a href="mailto:18832060103@163.com">{t.email}</a>
                   </div>
                 </div>
-                <div className="profile-panel" aria-hidden="true">
-                  <div className="profile-mark">{language === 'zh' ? '刘' : 'GL'}</div>
+                <div className="profile-panel">
+                  {photoLoaded ? (
+                    <img
+                      className="profile-photo"
+                      src="/your-photo.png"
+                      alt={language === 'zh' ? `${t.name}照片` : `${t.name} profile`}
+                      onError={() => setPhotoLoaded(false)}
+                    />
+                  ) : (
+                    <div className="profile-mark" aria-hidden="true">
+                      {language === 'zh' ? '刘' : 'GL'}
+                    </div>
+                  )}
                 </div>
               </div>
             </section>
@@ -331,13 +422,16 @@ function App() {
             <section className="section" id="education">
               <div className="section-inner">
                 <SectionTitle>{t.sections.education}</SectionTitle>
-                <div className="education-grid">
+                <article className="card education-card">
                   {t.education.schools.map((school) => (
-                    <article className="card education-card" key={school}>
-                      <p>{school}</p>
-                    </article>
+                    <div className="education-row" key={`${school.school}-${school.time}`}>
+                      <p className="education-school">{school.school}</p>
+                      <p className="education-major">{school.major}</p>
+                      <p className="education-performance">{school.performance}</p>
+                      <p className="education-time">{school.time}</p>
+                    </div>
                   ))}
-                </div>
+                </article>
                 <div className="courses-panel">
                   <p>{t.education.courses}</p>
                 </div>
@@ -382,21 +476,21 @@ function App() {
                 <div className="project-grid">
                   {t.projects.map((project) => (
                     <article className="card project-card" key={project.slug}>
-                      <h3>{project.heading}</h3>
-                      <div className="detail-list">
-                        {project.details.map((detail) => (
-                          <p key={detail}>{detail}</p>
-                        ))}
+                      <div className="project-content">
+                        <h3>{project.heading}</h3>
+                        <div className="detail-list">
+                          {project.details.map((detail) => (
+                            <p key={detail}>{detail}</p>
+                          ))}
+                        </div>
                       </div>
-                      <div className="card-actions">
-                        <button
-                          className="action-button"
-                          type="button"
-                          onClick={() => openProjectDetail(project.slug)}
-                        >
-                          {t.projectDetailButton}
-                        </button>
-                      </div>
+                      <button
+                        className="action-button project-detail-button"
+                        type="button"
+                        onClick={() => openProjectDetail(project.slug)}
+                      >
+                        {t.projectDetailButton}
+                      </button>
                     </article>
                   ))}
                 </div>
@@ -425,24 +519,6 @@ function App() {
               </div>
             </section>
 
-            <section className="section section-muted" id="contact">
-              <div className="section-inner">
-                <SectionTitle>{t.sections.contact}</SectionTitle>
-                <div className="contact-grid">
-                  {t.contact.map((item) => (
-                    <a
-                      className="contact-card"
-                      href={item.href}
-                      key={item.text}
-                      target={item.href.startsWith('http') ? '_blank' : undefined}
-                      rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                    >
-                      {item.text}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </section>
           </>
         )}
       </main>
