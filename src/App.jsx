@@ -8,7 +8,16 @@ const content = {
     projectIntroTitle: '项目介绍',
     backToProjects: '返回项目经历',
     certificateButton: '实习证明',
-    fileAreaTitle: '文件区',
+    mediaAreaTitle: '样机实物',
+    reportAreaTitle: '报告材料',
+    sourceAreaTitle: '源代码区',
+    previewButton: '预览',
+    openInNewTabButton: '新标签打开',
+    closeButton: '关闭',
+    downloadPromptTitle: '确认下载',
+    downloadPromptText: '即将下载文件：',
+    confirmDownloadButton: '确认',
+    cancelButton: '取消',
     name: '刘广天',
     role: '27 届硕士毕业生',
     phone: '手机号：18832060103',
@@ -66,31 +75,109 @@ const content = {
         heading:
           '2026.02-2026.06（硕士） DexHand 灵巧手样机制作与控制测试 核心成员',
         details: [
-          '1.内容：完成 DexHand 灵巧手实物制作与装配，具体包括完成物料采购、3D 打印、机械结构优化、装配等。',
-          '基于 Linux/ROS2 搭建仿真验证环境，完成 DexHand 灵巧手启动、RViz 可视化及基础关节运动测试；',
-          '基于 Arduino Nano RP2040 Connect 开发板搭建多舵机控制系统，完成供电、布线及控制程序开发，实现简单抓握功能；',
+          '1.机械结构优化与样机组装：完成物料采购、结构件 3D 打印、结构优化与样机组装，具体包括完成指关节连接、传动结构、舵机安装及掌部走线。',
+          '2.嵌入式控制与上位机开发：基于 ESP32 与 PCA9685 搭建多舵机控制系统，通过 I2C 协议实现舵机驱动控制，并基于串口通信完成上位机与下位机交互；开发上位机页面，实现舵机角度调节、动作指令发送与基础抓握测试。',
+          '3.ROS2 仿真验证：基于 Linux / ROS2 搭建 DexHand 启动与测试环境，实现模型加载、RViz 可视化显示及基础关节运动验证，为后续运动控制和仿真调试提供基础平台。',
         ],
         showcase: {
+          mediaTitle: '灵巧手样机实物',
           media: [
             {
               type: 'image',
-              title: '灵巧手样机实物',
-              src: '/dexhand-prototype.png',
-              alt: 'DexHand 灵巧手样机实物',
-              fallback: '待上传：public/dexhand-prototype.png',
+              title: '样机实物 01',
+              src: '/dexhand/prototype-01.jpg',
+              alt: 'DexHand 灵巧手样机实物正面',
+              fallback: '待上传：public/dexhand/prototype-01.jpg',
             },
             {
-              type: 'video',
-              title: 'Demo 展示',
-              src: '/dexhand-demo.mp4',
-              fallback: '待上传：public/dexhand-demo.mp4',
+              type: 'image',
+              title: '样机实物 02',
+              src: '/dexhand/prototype-02.jpg',
+              alt: 'DexHand 灵巧手样机实物侧面',
+              fallback: '待上传：public/dexhand/prototype-02.jpg',
+            },
+            {
+              type: 'image',
+              title: '样机实物 03',
+              src: '/dexhand/prototype-03.jpg',
+              alt: 'DexHand 灵巧手样机装配细节',
+              fallback: '待上传：public/dexhand/prototype-03.jpg',
+            },
+            {
+              type: 'image',
+              title: '样机实物 04',
+              src: '/dexhand/prototype-04.jpg',
+              alt: 'DexHand 灵巧手样机抓握测试',
+              fallback: '待上传：public/dexhand/prototype-04.jpg',
+              fit: 'contain',
+              layout: 'wide',
+            },
+            {
+              type: 'image',
+              title: '抓握 Demo',
+              src: '/dexhand/prototype-05.jpg',
+              alt: 'DexHand 灵巧手抓握 Demo 图片',
+              fallback: '待上传：public/dexhand/prototype-05.jpg',
+              fit: 'contain',
+              layout: 'wide',
+            },
+            {
+              type: 'image',
+              title: '上位机页面',
+              src: '/dexhand/host-computer-page.jpg',
+              alt: 'DexHand 灵巧手上位机页面',
+              fallback: '待上传：public/dexhand/host-computer-page.jpg',
+              fit: 'contain',
+              layout: 'wide',
             },
           ],
-          files: [
-            { label: '开题报告', href: '/dexhand-opening-report.pdf' },
-            { label: '中期答辩', href: '/dexhand-midterm-defense.pdf' },
-            { label: '终期答辩', href: '/dexhand-final-defense.pdf' },
-            { label: '最终报告', href: '/dexhand-final-report.pdf' },
+          reportsTitle: '报告材料',
+          reports: [
+            {
+              label: '开题报告',
+              href: '/dexhand/reports/Proposal%20Presentation.pdf',
+              meta: 'PDF',
+              note: '项目立项、任务拆解与技术路线',
+              path: 'public/dexhand/reports/Proposal Presentation.pdf',
+            },
+            {
+              label: '中期答辩',
+              href: '/dexhand/reports/Interim%20Presentation.pdf',
+              meta: 'PDF / PPT',
+              note: '中期进度、样机装配与测试记录',
+              path: 'public/dexhand/reports/Interim Presentation.pdf',
+            },
+            {
+              label: '终期答辩',
+              href: '/dexhand/reports/Final%20Presentation.pdf',
+              meta: 'PDF / PPT',
+              note: '终期展示、控制效果与结果总结',
+              path: 'public/dexhand/reports/Final Presentation.pdf',
+            },
+            {
+              label: '最终报告',
+              href: '/dexhand/reports/final-report.pdf',
+              meta: 'PDF',
+              note: '完整项目报告与最终归档材料',
+              path: 'public/dexhand/reports/final-report.pdf',
+            },
+          ],
+          sourceTitle: '源代码区',
+          source: [
+            {
+              label: '零件文件',
+              href: '/dexhand/source/dexhand-mechanical-build-main.zip',
+              meta: 'CAD / STL / STEP',
+              note: '结构零件、3D 打印文件与装配资料',
+              path: 'public/dexhand/source/dexhand-mechanical-build-main.zip',
+            },
+            {
+              label: '控制程序 & 上位机',
+              href: '/dexhand/source/Dexhand.zip',
+              meta: 'Host App',
+              note: '控制程序、上位机界面、通信调试与数据交互程序',
+              path: 'public/dexhand/source/Dexhand.zip',
+            },
           ],
         },
       },
@@ -135,7 +222,16 @@ const content = {
     projectIntroTitle: 'Project Introduction',
     backToProjects: 'Back to Projects',
     certificateButton: 'Internship Certificate',
-    fileAreaTitle: 'Files',
+    mediaAreaTitle: 'Prototype Photos',
+    reportAreaTitle: 'Reports',
+    sourceAreaTitle: 'Source Code',
+    previewButton: 'Preview',
+    openInNewTabButton: 'Open in New Tab',
+    closeButton: 'Close',
+    downloadPromptTitle: 'Confirm Download',
+    downloadPromptText: 'File to download: ',
+    confirmDownloadButton: 'Confirm',
+    cancelButton: 'Cancel',
     name: 'Guangtian Liu',
     role: "Master's Graduate, Class of 2027",
     phone: 'Phone: 18832060103',
@@ -193,31 +289,109 @@ const content = {
         heading:
           '2026.02-2026.06 (Master) DexHand Dexterous Hand Prototype Fabrication and Control Testing Core Member',
         details: [
-          '1. Content: completed DexHand dexterous hand physical fabrication and assembly, including material procurement, 3D printing, mechanical structure optimization, and assembly.',
-          'Built a simulation verification environment based on Linux/ROS2, and completed DexHand startup, RViz visualization, and basic joint motion tests;',
-          'Built a multi-servo control system based on the Arduino Nano RP2040 Connect development board, completed power supply, wiring, and control program development, and implemented a simple grasping function;',
+          '1. Mechanical structure optimization and prototype assembly: completed material procurement, structural part 3D printing, structural optimization, and prototype assembly, including finger joint connection, transmission structure, servo installation, and palm-side wiring.',
+          '2. Embedded control and host-computer development: built a multi-servo control system based on ESP32 and PCA9685, implemented servo drive control through the I2C protocol, and completed host-to-device interaction through serial communication; developed the host-computer page for servo angle adjustment, action command sending, and basic grasping tests.',
+          '3. ROS2 simulation verification: built the DexHand startup and test environment based on Linux / ROS2, implemented model loading, RViz visualization, and basic joint motion verification, providing a base platform for later motion control and simulation debugging.',
         ],
         showcase: {
+          mediaTitle: 'DexHand Prototype Photos',
           media: [
             {
               type: 'image',
-              title: 'Prototype',
-              src: '/dexhand-prototype.png',
-              alt: 'DexHand prototype',
-              fallback: 'Upload: public/dexhand-prototype.png',
+              title: 'Prototype 01',
+              src: '/dexhand/prototype-01.jpg',
+              alt: 'DexHand prototype front view',
+              fallback: 'Upload: public/dexhand/prototype-01.jpg',
             },
             {
-              type: 'video',
-              title: 'Demo',
-              src: '/dexhand-demo.mp4',
-              fallback: 'Upload: public/dexhand-demo.mp4',
+              type: 'image',
+              title: 'Prototype 02',
+              src: '/dexhand/prototype-02.jpg',
+              alt: 'DexHand prototype side view',
+              fallback: 'Upload: public/dexhand/prototype-02.jpg',
+            },
+            {
+              type: 'image',
+              title: 'Prototype 03',
+              src: '/dexhand/prototype-03.jpg',
+              alt: 'DexHand prototype assembly detail',
+              fallback: 'Upload: public/dexhand/prototype-03.jpg',
+            },
+            {
+              type: 'image',
+              title: 'Prototype 04',
+              src: '/dexhand/prototype-04.jpg',
+              alt: 'DexHand prototype grasping test',
+              fallback: 'Upload: public/dexhand/prototype-04.jpg',
+              fit: 'contain',
+              layout: 'wide',
+            },
+            {
+              type: 'image',
+              title: 'Grasp Demo',
+              src: '/dexhand/prototype-05.jpg',
+              alt: 'DexHand grasp demo image',
+              fallback: 'Upload: public/dexhand/prototype-05.jpg',
+              fit: 'contain',
+              layout: 'wide',
+            },
+            {
+              type: 'image',
+              title: 'Host Computer Page',
+              src: '/dexhand/host-computer-page.jpg',
+              alt: 'DexHand host computer page',
+              fallback: 'Upload: public/dexhand/host-computer-page.jpg',
+              fit: 'contain',
+              layout: 'wide',
             },
           ],
-          files: [
-            { label: 'Proposal', href: '/dexhand-opening-report.pdf' },
-            { label: 'Midterm Defense', href: '/dexhand-midterm-defense.pdf' },
-            { label: 'Final Defense', href: '/dexhand-final-defense.pdf' },
-            { label: 'Final Report', href: '/dexhand-final-report.pdf' },
+          reportsTitle: 'Reports',
+          reports: [
+            {
+              label: 'Proposal',
+              href: '/dexhand/reports/Proposal%20Presentation.pdf',
+              meta: 'PDF',
+              note: 'Project definition, task breakdown, and technical roadmap',
+              path: 'public/dexhand/reports/Proposal Presentation.pdf',
+            },
+            {
+              label: 'Midterm Defense',
+              href: '/dexhand/reports/Interim%20Presentation.pdf',
+              meta: 'PDF / PPT',
+              note: 'Midterm progress, prototype assembly, and test records',
+              path: 'public/dexhand/reports/Interim Presentation.pdf',
+            },
+            {
+              label: 'Final Defense',
+              href: '/dexhand/reports/Final%20Presentation.pdf',
+              meta: 'PDF / PPT',
+              note: 'Final presentation, control results, and summary',
+              path: 'public/dexhand/reports/Final Presentation.pdf',
+            },
+            {
+              label: 'Final Report',
+              href: '/dexhand/reports/final-report.pdf',
+              meta: 'PDF',
+              note: 'Complete project report and archived deliverables',
+              path: 'public/dexhand/reports/final-report.pdf',
+            },
+          ],
+          sourceTitle: 'Source Code',
+          source: [
+            {
+              label: 'Parts',
+              href: '/dexhand/source/dexhand-mechanical-build-main.zip',
+              meta: 'CAD / STL / STEP',
+              note: 'Mechanical parts, 3D-printing files, and assembly materials',
+              path: 'public/dexhand/source/dexhand-mechanical-build-main.zip',
+            },
+            {
+              label: 'Control Program & Host Computer',
+              href: '/dexhand/source/Dexhand.zip',
+              meta: 'Host App',
+              note: 'Control program, host-side UI, communication debugging, and data exchange code',
+              path: 'public/dexhand/source/Dexhand.zip',
+            },
           ],
         },
       },
@@ -264,9 +438,17 @@ function SectionTitle({ children }) {
 
 function ProjectMedia({ item }) {
   const [hasError, setHasError] = useState(false)
+  const mediaClassName = [
+    'card',
+    'media-card',
+    item.fit === 'contain' ? 'media-card-contain' : '',
+    item.layout === 'wide' ? 'media-card-wide' : '',
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   return (
-    <article className="card media-card">
+    <article className={mediaClassName}>
       <h2>{item.title}</h2>
       <div className="media-frame">
         {hasError ? (
@@ -281,7 +463,166 @@ function ProjectMedia({ item }) {
   )
 }
 
+function ReportCard({ item, labels, onPreview }) {
+  return (
+    <article className="card report-card">
+      <div>
+        <h3>{item.label}</h3>
+        <span className="resource-meta">{item.meta}</span>
+      </div>
+      <button className="inline-action" type="button" onClick={() => onPreview(item)}>
+        {labels.previewButton}
+      </button>
+    </article>
+  )
+}
+
+function SourceCard({ item, onDownload }) {
+  return (
+    <button className="card source-card source-card-button" type="button" onClick={() => onDownload(item)}>
+      <span className="resource-label">{item.label}</span>
+      <span className="resource-meta">{item.meta}</span>
+    </button>
+  )
+}
+
+function ReportSection({ title, items, labels, onPreview }) {
+  if (!items?.length) {
+    return null
+  }
+
+  return (
+    <section className="detail-block">
+      <div className="detail-block-head">
+        <h2>{title}</h2>
+      </div>
+      <div className="resource-grid resource-grid-reports">
+        {items.map((item) => (
+          <ReportCard item={item} labels={labels} onPreview={onPreview} key={item.href} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function SourceSection({ title, items, onDownload }) {
+  if (!items?.length) {
+    return null
+  }
+
+  return (
+    <section className="detail-block">
+      <div className="detail-block-head">
+        <h2>{title}</h2>
+      </div>
+      <div className="resource-grid resource-grid-source">
+        {items.map((item) => (
+          <SourceCard item={item} onDownload={onDownload} key={item.href} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function ReportPreviewModal({ item, labels, onClose }) {
+  if (!item) {
+    return null
+  }
+
+  return (
+    <div className="modal-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="modal-panel preview-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label={item.label}
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <div className="modal-head">
+          <h2>{item.label}</h2>
+          <button className="modal-close" type="button" onClick={onClose}>
+            {labels.closeButton}
+          </button>
+        </div>
+        <iframe className="pdf-preview" src={item.href} title={item.label} />
+        <div className="modal-actions">
+          <a className="inline-action secondary-inline-action" href={item.href} target="_blank" rel="noreferrer">
+            {labels.openInNewTabButton}
+          </a>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function DownloadConfirmModal({ item, labels, onCancel, onConfirm }) {
+  if (!item) {
+    return null
+  }
+
+  return (
+    <div className="modal-backdrop" role="presentation" onMouseDown={onCancel}>
+      <section
+        className="modal-panel download-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label={labels.downloadPromptTitle}
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <div className="modal-head">
+          <h2>{labels.downloadPromptTitle}</h2>
+        </div>
+        <p className="download-message">
+          {labels.downloadPromptText}
+          <strong>{item.label}</strong>
+        </p>
+        <div className="modal-actions">
+          <button className="inline-action secondary-inline-action" type="button" onClick={onCancel}>
+            {labels.cancelButton}
+          </button>
+          <button className="inline-action" type="button" onClick={onConfirm}>
+            {labels.confirmDownloadButton}
+          </button>
+        </div>
+      </section>
+    </div>
+  )
+}
+
 function ProjectDetail({ labels, project, onBack }) {
+  const [previewReport, setPreviewReport] = useState(null)
+  const [pendingDownload, setPendingDownload] = useState(null)
+
+  useEffect(() => {
+    if (!previewReport && !pendingDownload) {
+      return undefined
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setPreviewReport(null)
+        setPendingDownload(null)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [previewReport, pendingDownload])
+
+  const confirmDownload = () => {
+    if (!pendingDownload) {
+      return
+    }
+
+    const link = document.createElement('a')
+    link.href = pendingDownload.href
+    link.download = ''
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    setPendingDownload(null)
+  }
+
   return (
     <section className="section detail-page">
       <div className="section-inner">
@@ -299,24 +640,37 @@ function ProjectDetail({ labels, project, onBack }) {
         </article>
         {project.showcase ? (
           <div className="project-detail-sections">
-            <div className="detail-media-grid">
-              {project.showcase.media.map((item) => (
-                <ProjectMedia item={item} key={item.title} />
-              ))}
-            </div>
-            <article className="card file-card">
-              <h2>{labels.fileAreaTitle}</h2>
-              <div className="file-grid">
-                {project.showcase.files.map((file) => (
-                  <a className="file-link" href={file.href} target="_blank" rel="noreferrer" key={file.href}>
-                    {file.label}
-                  </a>
+            <section className="detail-block">
+              <div className="detail-block-head">
+                <h2>{project.showcase.mediaTitle ?? labels.mediaAreaTitle}</h2>
+              </div>
+              <div className="detail-media-grid">
+                {project.showcase.media.map((item) => (
+                  <ProjectMedia item={item} key={item.title} />
                 ))}
               </div>
-            </article>
+            </section>
+            <ReportSection
+              title={project.showcase.reportsTitle ?? labels.reportAreaTitle}
+              items={project.showcase.reports ?? project.showcase.files}
+              labels={labels}
+              onPreview={setPreviewReport}
+            />
+            <SourceSection
+              title={project.showcase.sourceTitle ?? labels.sourceAreaTitle}
+              items={project.showcase.source}
+              onDownload={setPendingDownload}
+            />
           </div>
         ) : null}
       </div>
+      <ReportPreviewModal item={previewReport} labels={labels} onClose={() => setPreviewReport(null)} />
+      <DownloadConfirmModal
+        item={pendingDownload}
+        labels={labels}
+        onCancel={() => setPendingDownload(null)}
+        onConfirm={confirmDownload}
+      />
     </section>
   )
 }
@@ -485,7 +839,7 @@ function App() {
                         </div>
                       </div>
                       <button
-                        className="action-button project-detail-button"
+                        className="action-button secondary-action project-detail-button"
                         type="button"
                         onClick={() => openProjectDetail(project.slug)}
                       >
