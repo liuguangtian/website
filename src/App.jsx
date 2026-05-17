@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
+
 const content = {
   zh: {
     languageButton: 'EN',
@@ -61,7 +63,7 @@ const content = {
         time: '2025.06-2025.08',
         company: '北京北方华创微电子装备有限公司',
         position: '助理电气工程师',
-        certificateHref: '/naura-proof.pdf',
+        certificateHref: publicAsset('naura-proof.pdf'),
         details: [
           '1.物料管理：新物料的申请、发布以及变更物料图纸的修改、检入、发布以及 BOM 的发布。',
           '2.电气开发：基于 SWE 完成电缆图、配线图的核对修正；基于中望 CAD 对图纸进行校对修正。',
@@ -85,28 +87,28 @@ const content = {
             {
               type: 'image',
               title: '样机实物 01',
-              src: '/dexhand/prototype-01.jpg',
+              src: publicAsset('dexhand/prototype-01.jpg'),
               alt: 'DexHand 灵巧手样机实物正面',
               fallback: '待上传：public/dexhand/prototype-01.jpg',
             },
             {
               type: 'image',
               title: '样机实物 02',
-              src: '/dexhand/prototype-02.jpg',
+              src: publicAsset('dexhand/prototype-02.jpg'),
               alt: 'DexHand 灵巧手样机实物侧面',
               fallback: '待上传：public/dexhand/prototype-02.jpg',
             },
             {
               type: 'image',
               title: '样机实物 03',
-              src: '/dexhand/prototype-03.jpg',
+              src: publicAsset('dexhand/prototype-03.jpg'),
               alt: 'DexHand 灵巧手样机装配细节',
               fallback: '待上传：public/dexhand/prototype-03.jpg',
             },
             {
               type: 'image',
               title: '样机实物 04',
-              src: '/dexhand/prototype-04.jpg',
+              src: publicAsset('dexhand/prototype-04.jpg'),
               alt: 'DexHand 灵巧手样机抓握测试',
               fallback: '待上传：public/dexhand/prototype-04.jpg',
               fit: 'contain',
@@ -115,7 +117,7 @@ const content = {
             {
               type: 'image',
               title: '抓握 Demo',
-              src: '/dexhand/prototype-05.jpg',
+              src: publicAsset('dexhand/prototype-05.jpg'),
               alt: 'DexHand 灵巧手抓握 Demo 图片',
               fallback: '待上传：public/dexhand/prototype-05.jpg',
               fit: 'contain',
@@ -124,7 +126,7 @@ const content = {
             {
               type: 'image',
               title: '上位机页面',
-              src: '/dexhand/host-computer-page.jpg',
+              src: publicAsset('dexhand/host-computer-page.jpg'),
               alt: 'DexHand 灵巧手上位机页面',
               fallback: '待上传：public/dexhand/host-computer-page.jpg',
               fit: 'contain',
@@ -135,28 +137,28 @@ const content = {
           reports: [
             {
               label: '开题报告',
-              href: '/dexhand/reports/Proposal%20Presentation.pdf',
+              href: publicAsset('dexhand/reports/Proposal%20Presentation.pdf'),
               meta: 'PDF',
               note: '项目立项、任务拆解与技术路线',
               path: 'public/dexhand/reports/Proposal Presentation.pdf',
             },
             {
               label: '中期答辩',
-              href: '/dexhand/reports/Interim%20Presentation.pdf',
+              href: publicAsset('dexhand/reports/Interim%20Presentation.pdf'),
               meta: 'PDF / PPT',
               note: '中期进度、样机装配与测试记录',
               path: 'public/dexhand/reports/Interim Presentation.pdf',
             },
             {
               label: '终期答辩',
-              href: '/dexhand/reports/Final%20Presentation.pdf',
+              href: publicAsset('dexhand/reports/Final%20Presentation.pdf'),
               meta: 'PDF / PPT',
               note: '终期展示、控制效果与结果总结',
               path: 'public/dexhand/reports/Final Presentation.pdf',
             },
             {
               label: '最终报告',
-              href: '/dexhand/reports/final-report.pdf',
+              href: publicAsset('dexhand/reports/final-report.pdf'),
               meta: 'PDF',
               note: '完整项目报告与最终归档材料',
               path: 'public/dexhand/reports/final-report.pdf',
@@ -166,14 +168,14 @@ const content = {
           source: [
             {
               label: '零件文件',
-              href: '/dexhand/source/dexhand-mechanical-build-main.zip',
+              href: publicAsset('dexhand/source/dexhand-mechanical-build-main.zip'),
               meta: 'CAD / STL / STEP',
               note: '结构零件、3D 打印文件与装配资料',
               path: 'public/dexhand/source/dexhand-mechanical-build-main.zip',
             },
             {
               label: '控制程序 & 上位机',
-              href: '/dexhand/source/Dexhand.zip',
+              href: publicAsset('dexhand/source/Dexhand.zip'),
               meta: 'Host App',
               note: '控制程序、上位机界面、通信调试与数据交互程序',
               path: 'public/dexhand/source/Dexhand.zip',
@@ -275,7 +277,7 @@ const content = {
         time: '2025.06-2025.08',
         company: 'Beijing NAURA Microelectronics Equipment Co., Ltd.',
         position: 'Assistant Electrical Engineer',
-        certificateHref: '/naura-proof.pdf',
+        certificateHref: publicAsset('naura-proof.pdf'),
         details: [
           '1. Material management: applied for and released new materials; revised, checked in, and released changed material drawings; released BOMs.',
           '2. Electrical development: checked and corrected cable diagrams and wiring diagrams based on SWE; checked and corrected drawings based on ZWCAD.',
@@ -299,28 +301,28 @@ const content = {
             {
               type: 'image',
               title: 'Prototype 01',
-              src: '/dexhand/prototype-01.jpg',
+              src: publicAsset('dexhand/prototype-01.jpg'),
               alt: 'DexHand prototype front view',
               fallback: 'Upload: public/dexhand/prototype-01.jpg',
             },
             {
               type: 'image',
               title: 'Prototype 02',
-              src: '/dexhand/prototype-02.jpg',
+              src: publicAsset('dexhand/prototype-02.jpg'),
               alt: 'DexHand prototype side view',
               fallback: 'Upload: public/dexhand/prototype-02.jpg',
             },
             {
               type: 'image',
               title: 'Prototype 03',
-              src: '/dexhand/prototype-03.jpg',
+              src: publicAsset('dexhand/prototype-03.jpg'),
               alt: 'DexHand prototype assembly detail',
               fallback: 'Upload: public/dexhand/prototype-03.jpg',
             },
             {
               type: 'image',
               title: 'Prototype 04',
-              src: '/dexhand/prototype-04.jpg',
+              src: publicAsset('dexhand/prototype-04.jpg'),
               alt: 'DexHand prototype grasping test',
               fallback: 'Upload: public/dexhand/prototype-04.jpg',
               fit: 'contain',
@@ -329,7 +331,7 @@ const content = {
             {
               type: 'image',
               title: 'Grasp Demo',
-              src: '/dexhand/prototype-05.jpg',
+              src: publicAsset('dexhand/prototype-05.jpg'),
               alt: 'DexHand grasp demo image',
               fallback: 'Upload: public/dexhand/prototype-05.jpg',
               fit: 'contain',
@@ -338,7 +340,7 @@ const content = {
             {
               type: 'image',
               title: 'Host Computer Page',
-              src: '/dexhand/host-computer-page.jpg',
+              src: publicAsset('dexhand/host-computer-page.jpg'),
               alt: 'DexHand host computer page',
               fallback: 'Upload: public/dexhand/host-computer-page.jpg',
               fit: 'contain',
@@ -349,28 +351,28 @@ const content = {
           reports: [
             {
               label: 'Proposal',
-              href: '/dexhand/reports/Proposal%20Presentation.pdf',
+              href: publicAsset('dexhand/reports/Proposal%20Presentation.pdf'),
               meta: 'PDF',
               note: 'Project definition, task breakdown, and technical roadmap',
               path: 'public/dexhand/reports/Proposal Presentation.pdf',
             },
             {
               label: 'Midterm Defense',
-              href: '/dexhand/reports/Interim%20Presentation.pdf',
+              href: publicAsset('dexhand/reports/Interim%20Presentation.pdf'),
               meta: 'PDF / PPT',
               note: 'Midterm progress, prototype assembly, and test records',
               path: 'public/dexhand/reports/Interim Presentation.pdf',
             },
             {
               label: 'Final Defense',
-              href: '/dexhand/reports/Final%20Presentation.pdf',
+              href: publicAsset('dexhand/reports/Final%20Presentation.pdf'),
               meta: 'PDF / PPT',
               note: 'Final presentation, control results, and summary',
               path: 'public/dexhand/reports/Final Presentation.pdf',
             },
             {
               label: 'Final Report',
-              href: '/dexhand/reports/final-report.pdf',
+              href: publicAsset('dexhand/reports/final-report.pdf'),
               meta: 'PDF',
               note: 'Complete project report and archived deliverables',
               path: 'public/dexhand/reports/final-report.pdf',
@@ -380,14 +382,14 @@ const content = {
           source: [
             {
               label: 'Parts',
-              href: '/dexhand/source/dexhand-mechanical-build-main.zip',
+              href: publicAsset('dexhand/source/dexhand-mechanical-build-main.zip'),
               meta: 'CAD / STL / STEP',
               note: 'Mechanical parts, 3D-printing files, and assembly materials',
               path: 'public/dexhand/source/dexhand-mechanical-build-main.zip',
             },
             {
               label: 'Control Program & Host Computer',
-              href: '/dexhand/source/Dexhand.zip',
+              href: publicAsset('dexhand/source/Dexhand.zip'),
               meta: 'Host App',
               note: 'Control program, host-side UI, communication debugging, and data exchange code',
               path: 'public/dexhand/source/Dexhand.zip',
@@ -760,7 +762,7 @@ function App() {
                   {photoLoaded ? (
                     <img
                       className="profile-photo"
-                      src="/your-photo.png"
+                      src={publicAsset('your-photo.png')}
                       alt={language === 'zh' ? `${t.name}照片` : `${t.name} profile`}
                       onError={() => setPhotoLoaded(false)}
                     />
