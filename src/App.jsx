@@ -14,6 +14,7 @@ const content = {
     reportAreaTitle: '报告材料',
     sourceAreaTitle: '源代码区',
     previewButton: '预览',
+    imagePreviewButton: '放大预览',
     openInNewTabButton: '新标签打开',
     closeButton: '关闭',
     downloadPromptTitle: '确认下载',
@@ -44,7 +45,7 @@ const content = {
       schools: [
         {
           school: '香港中文大学(深圳)',
-          major: '能源科学与工程（电气方向）',
+          major: '能源科学与工程（AI+电气方向）',
           performance: '绩点：3.44/4',
           time: '2025.09-2027.06',
         },
@@ -56,18 +57,18 @@ const content = {
         },
       ],
       courses:
-        '主修课程：电路理论、电力电子技术、电工学、半导体物理与器件、模拟电子技术、控制工程基础、机器人与智能系统、机器学习、智能电网、电力系统、风力发电系统与控制技术、风力机原理、光伏器件与系统、太阳能工程、储能原理与技术、传热传质学、工程热力学、流体力学',
+        '主修课程：电路理论、电力电子技术、电工学、半导体物理与器件、模拟电子技术、控制工程基础、机器人与智能系统、Python 编程（从入门到实践）、机器学习、深度学习入门（基于 Python 的理论与实现）、智能电网、电力系统、风力发电系统与控制技术、风力机原理、光伏器件与系统、太阳能工程、储能原理与技术、传热传质学、工程热力学、流体力学',
     },
     experiences: [
       {
         time: '2025.06-2025.08',
         company: '北京北方华创微电子装备有限公司',
-        position: '助理电气工程师',
+        position: '电气开发工程师',
         certificateHref: publicAsset('naura-proof.pdf'),
         details: [
           '1.物料管理：新物料的申请、发布以及变更物料图纸的修改、检入、发布以及 BOM 的发布。',
           '2.电气开发：基于 SWE 完成电缆图、配线图的核对修正；基于中望 CAD 对图纸进行校对修正。',
-          '3.洁净间机台测试：Safety Check 测试—协助制造人员完成设备出厂前的安全测试，确保设备故障预警功能正常；万用表等仪器—对清洗机腔室电机 Driver Converter 的输入输出电压进行测试，累计进行 300+次。SOP 编写—阅读限温器等产品说明书，编写符合设备要求的 SOP 文件，协助产品的软件配置。',
+          '3.洁净间机台测试：Safety Check 测试—协助制造人员完成设备出厂前的安全测试，确保设备故障预警功能正常；万用表等仪器—对清洗机腔室电机 Driver Converter 的输入输出电压进行测试，累计进行 300+ 次；SOP 编写—阅读限温器等产品说明书，编写符合设备要求的 SOP 文件，协助产品的软件配置。',
         ],
       },
     ],
@@ -75,11 +76,10 @@ const content = {
       {
         slug: 'dexhand',
         heading:
-          '2026.02-2026.06（硕士） DexHand 灵巧手样机制作与控制测试 核心成员',
+          '2026.02-2026.06 DexHand 灵巧手样机制作与上位机控制 核心成员',
         details: [
-          '1.机械结构优化与样机组装：完成物料采购、结构件 3D 打印、结构优化与样机组装，具体包括完成指关节连接、传动结构、舵机安装及掌部走线。',
-          '2.嵌入式控制与上位机开发：基于 ESP32 与 PCA9685 搭建多舵机控制系统，通过 I2C 协议实现舵机驱动控制，并基于串口通信完成上位机与下位机交互；开发上位机页面，实现舵机角度调节、动作指令发送与基础抓握测试。',
-          '3.ROS2 仿真验证：基于 Linux / ROS2 搭建 DexHand 启动与测试环境，实现模型加载、RViz 可视化显示及基础关节运动验证，为后续运动控制和仿真调试提供基础平台。',
+          '1.机械结构优化与样机组装：完成物料采购、结构件 3D 打印、机械结构及零部件优化与最终样机组装。',
+          '2.嵌入式控制与上位机开发：基于 ESP32 与 PCA9685 开发多舵机控制程序，通过 I2C 总线控制 PCA9685 输出多路 PWM 信号驱动舵机；基于 PySide6 框架开发上位机控制界面，并通过串口通信完成上位机与下位机的数据交互和舵机动作控制。',
         ],
         showcase: {
           mediaTitle: '灵巧手样机实物',
@@ -186,25 +186,29 @@ const content = {
       {
         slug: 'wind-power-forecasting',
         heading:
-          '2026.04-至今（硕士） 基于深度学习时间序列模型的风电长时出力预测 核心成员',
+          '2026.04-至今 基于深度学习的风电长时出力预测模型研究 负责人',
         details: [
-          '1.内容：基于 ERA5 气象数据开展风电出力相关性分析，筛选关键气象特征；结合 TiDE 构建长时间序列预测模型，实现长时风电出力预测及持续低出力事件识别。',
+          '1.基于 ERA5 气象数据与风电场历史出力数据，完成数据清洗、时间对齐、相关性分析与关键气象特征筛选，构建持续低出力事件识别判据；',
+          '2.基于小时级风电数据集，复现并训练 LSTM、TiDE、TimeXer 等时序预测模型，完成滑动窗口样本构建、超参数调优及多模型预测性能对比，',
+          '3.基于 PyTorch 自主搭建融合历史出力、历史气象与未来气象特征的长时风电预测模型，完成模型训练、误差评估、结果可视化及低出力过程预测分析。',
         ],
       },
       {
         slug: 'energy-storage-optimization',
         heading:
-          '2025.09-至今（硕士） 高比例风光电力系统多时间尺度储能优化配置与调度研究 负责人',
+          '2025.09-至今 高比例新能源电力系统多时间尺度储能调度与优化规划 负责人',
         details: [
-          '1.内容：构建显式保留极端事件的代表时段聚类方法，用于降低长期规划模型计算规模；建立含电池储能、短期储氢与长期储氢的多时间尺度级联储能规划模型；基于机会约束刻画季节性能量失衡风险，并在 Garver 6-bus 与 HRP-38 系统上开展案例验证；使用 MATLAB / YALMIP / CPLEX 完成模型构建与仿真分析。',
+          '1.针对高比例风光电力系统中持续多日低出力与季节低出力问题，构建大规模混合整数线性规划（MILP）电力系统优化模型。',
+          '2.建立电池储能、短期及长期储氢的容量规划-运行调度优化模型，刻画日内、多日与季节尺度的多时间尺度调节能力。',
+          '3.基于机会约束和随机优化思想建模新能源出力不确定性，使用 MATLAB / YALMIP / GUROBI 完成算例验证。',
         ],
       },
       {
         slug: 'wind-turbine-blades',
         heading:
-          '2025.01-2025.06（本科） 结构变形对风力机超长柔性叶片气动弹性影响分析 负责人',
+          '2025.01-2025.06 结构变形对风力机超长柔性叶片气动弹性影响分析 负责人',
         details: [
-          '1.内容：本课题首先基于 OpenFAST 多物理场开源平台对风力机叶片建模以及对其可靠性进行仿真验证，之后系统研究了 5MW、10MW、22MW 三种基于 FFA-W3、不同展长的风力机柔性叶片在额定风速下的动态变形，最后基于 IEA-22-280-RWT 风力机研究超长柔性叶片的动态变形对叶片气动性能及风力机整体性能的影响。',
+          '本课题首先基于 OpenFAST 多物理场开源平台对风力机叶片建模以及对其可靠性进行仿真验证，之后系统研究了 5MW、10MW、22MW 三种基于 FFA-W3、不同展长的风力机柔性叶片在额定风速下的动态变形，最后基于 IEA-22-280-RWT 风力机研究超长柔性叶片的动态变形对叶片气动性能及风力机整体性能的影响。',
         ],
       },
     ],
@@ -215,7 +219,7 @@ const content = {
     ],
     other:
       '南京理工大学校级奖学金 4 次；“社会活动积极分子”称号等。',
-    updatedAt: '更新时间：2026.05.16',
+    updatedAt: '更新时间：2026.05.28',
     footer: '© 2026 刘广天。保留所有权利。',
   },
   en: {
@@ -228,6 +232,7 @@ const content = {
     reportAreaTitle: 'Reports',
     sourceAreaTitle: 'Source Code',
     previewButton: 'Preview',
+    imagePreviewButton: 'Zoom',
     openInNewTabButton: 'Open in New Tab',
     closeButton: 'Close',
     downloadPromptTitle: 'Confirm Download',
@@ -258,7 +263,7 @@ const content = {
       schools: [
         {
           school: 'The Chinese University of Hong Kong, Shenzhen',
-          major: 'Energy Science and Engineering (Electrical Track)',
+          major: 'Energy Science and Engineering (AI + Electrical Track)',
           performance: 'GPA: 3.44/4',
           time: '2025.09-2027.06',
         },
@@ -270,18 +275,18 @@ const content = {
         },
       ],
       courses:
-        'Major Courses: Circuit Theory, Power Electronics, Electrical Engineering, Semiconductor Physics and Devices, Analog Electronics, Fundamentals of Control Engineering, Robotics and Intelligent Systems, Machine Learning, Smart Grid, Power Systems, Wind Power Generation Systems and Control Technology, Principles of Wind Turbines, Photovoltaic Devices and Systems, Solar Energy Engineering, Energy Storage Principles and Technology, Heat and Mass Transfer, Engineering Thermodynamics, Fluid Mechanics',
+        'Major Courses: Circuit Theory, Power Electronics, Electrical Engineering, Semiconductor Physics and Devices, Analog Electronics, Fundamentals of Control Engineering, Robotics and Intelligent Systems, Python Programming (from Beginner to Practice), Machine Learning, Introduction to Deep Learning (Python-Based Theory and Implementation), Smart Grid, Power Systems, Wind Power Generation Systems and Control Technology, Principles of Wind Turbines, Photovoltaic Devices and Systems, Solar Energy Engineering, Energy Storage Principles and Technology, Heat and Mass Transfer, Engineering Thermodynamics, Fluid Mechanics',
     },
     experiences: [
       {
         time: '2025.06-2025.08',
         company: 'Beijing NAURA Microelectronics Equipment Co., Ltd.',
-        position: 'Assistant Electrical Engineer',
+        position: 'Electrical Development Engineer',
         certificateHref: publicAsset('naura-proof.pdf'),
         details: [
           '1. Material management: applied for and released new materials; revised, checked in, and released changed material drawings; released BOMs.',
           '2. Electrical development: checked and corrected cable diagrams and wiring diagrams based on SWE; checked and corrected drawings based on ZWCAD.',
-          '3. Cleanroom equipment testing: Safety Check test - assisted manufacturing staff with pre-shipment equipment safety tests to ensure normal fault warning functions; instruments such as multimeters - tested input and output voltages of the Driver Converter for cleaning machine chamber motors, 300+ times in total. SOP writing - read product manuals such as temperature limiters, wrote SOP files meeting equipment requirements, and assisted product software configuration.',
+          '3. Cleanroom equipment testing: Safety Check tests - assisted manufacturing staff with pre-shipment equipment safety tests to ensure normal fault-warning functions; instruments such as multimeters - tested input and output voltages of the Driver Converter for cleaning machine chamber motors, 300+ times in total; SOP writing - read product manuals such as temperature limiters, wrote SOP files meeting equipment requirements, and assisted product software configuration.',
         ],
       },
     ],
@@ -289,11 +294,10 @@ const content = {
       {
         slug: 'dexhand',
         heading:
-          '2026.02-2026.06 (Master) DexHand Dexterous Hand Prototype Fabrication and Control Testing Core Member',
+          '2026.02-2026.06 DexHand Dexterous Hand Prototype Fabrication and Host-Computer Control Core Member',
         details: [
-          '1. Mechanical structure optimization and prototype assembly: completed material procurement, structural part 3D printing, structural optimization, and prototype assembly, including finger joint connection, transmission structure, servo installation, and palm-side wiring.',
-          '2. Embedded control and host-computer development: built a multi-servo control system based on ESP32 and PCA9685, implemented servo drive control through the I2C protocol, and completed host-to-device interaction through serial communication; developed the host-computer page for servo angle adjustment, action command sending, and basic grasping tests.',
-          '3. ROS2 simulation verification: built the DexHand startup and test environment based on Linux / ROS2, implemented model loading, RViz visualization, and basic joint motion verification, providing a base platform for later motion control and simulation debugging.',
+          '1. Mechanical structure optimization and prototype assembly: completed material procurement, structural part 3D printing, mechanical structure and component optimization, and final prototype assembly.',
+          '2. Embedded control and host-computer development: developed a multi-servo control program based on ESP32 and PCA9685, controlled PCA9685 over the I2C bus to output multi-channel PWM signals for servo driving; developed a host-computer control interface with PySide6, and completed data exchange and servo motion control between the host computer and lower controller through serial communication.',
         ],
         showcase: {
           mediaTitle: 'DexHand Prototype Photos',
@@ -400,25 +404,28 @@ const content = {
       {
         slug: 'wind-power-forecasting',
         heading:
-          '2026.04-Present (Master) Long-Term Wind Power Output Forecasting Based on Deep Learning Time-Series Models Core Member',
+          '2026.04-Present Research on Long-Term Wind Power Output Forecasting Models Based on Deep Learning Lead',
         details: [
-          '1. Content: conducted wind power output correlation analysis based on ERA5 meteorological data and selected key meteorological features; combined TiDE to build a long time-series forecasting model, achieving long-term wind power output forecasting and continuous low-output event identification.',
+          '1. Based on ERA5 meteorological data and wind-farm historical output data, completed data cleaning, time alignment, correlation analysis, and key meteorological feature selection; built criteria for identifying continuous low-output events; reproduced and trained LSTM, TiDE, TimeXer, and other time-series forecasting models on hourly wind-power datasets, completing sliding-window sample construction, hyperparameter tuning, and multi-model performance comparison.',
+          '2. Built a long-term wind-power forecasting model in PyTorch that fuses historical output, historical meteorological features, and future meteorological features; completed model training, error evaluation, result visualization, and low-output process forecasting analysis.',
         ],
       },
       {
         slug: 'energy-storage-optimization',
         heading:
-          '2025.09-Present (Master) Multi-Time-Scale Energy Storage Optimization Configuration and Dispatch for High-Penetration Wind-Solar Power Systems Lead',
+          '2025.09-Present Multi-Time-Scale Energy Storage Dispatch and Optimization Planning for High-Penetration Renewable Power Systems Lead',
         details: [
-          '1. Content: built a representative-period clustering method that explicitly retains extreme events to reduce the computational scale of long-term planning models; established a multi-time-scale cascaded energy storage planning model including battery energy storage, short-term hydrogen storage, and long-term hydrogen storage; characterized seasonal energy imbalance risk based on chance constraints, and conducted case validation on Garver 6-bus and HRP-38 systems; used MATLAB / YALMIP / CPLEX for model construction and simulation analysis.',
+          '1. For high-penetration wind-solar power systems with continuous multi-day low-output and seasonal low-output issues, built a large-scale mixed-integer linear programming (MILP) power-system optimization model.',
+          '2. Established a capacity-planning and operation-dispatch optimization model for battery energy storage, short-term hydrogen storage, and long-term hydrogen storage, characterizing multi-time-scale regulation capability across intraday, multi-day, and seasonal scales.',
+          '3. Modeled renewable-output uncertainty based on chance constraints and stochastic optimization ideas, and completed case validation using MATLAB / YALMIP / GUROBI.',
         ],
       },
       {
         slug: 'wind-turbine-blades',
         heading:
-          '2025.01-2025.06 (Undergraduate) Analysis of the Aeroelastic Impact of Structural Deformation on Ultra-Long Flexible Wind Turbine Blades Lead',
+          '2025.01-2025.06 Analysis of the Aeroelastic Impact of Structural Deformation on Ultra-Long Flexible Wind Turbine Blades Lead',
         details: [
-          '1. Content: this project first modeled wind turbine blades based on the OpenFAST multi-physics open-source platform and verified reliability through simulation; then systematically studied the dynamic deformation at rated wind speed of 5MW, 10MW, and 22MW flexible wind turbine blades based on FFA-W3 with different spans; finally, based on the IEA-22-280-RWT wind turbine, studied the impact of dynamic deformation of ultra-long flexible blades on blade aerodynamic performance and overall wind turbine performance.',
+          'This project first modeled wind turbine blades based on the OpenFAST multi-physics open-source platform and verified reliability through simulation; then systematically studied the dynamic deformation at rated wind speed of 5MW, 10MW, and 22MW flexible wind turbine blades based on FFA-W3 with different spans; finally, based on the IEA-22-280-RWT wind turbine, studied the impact of dynamic deformation of ultra-long flexible blades on blade aerodynamic performance and overall wind turbine performance.',
         ],
       },
     ],
@@ -429,7 +436,7 @@ const content = {
     ],
     other:
       'Honors and Awards: Nanjing University of Science and Technology university-level scholarship 4 times; title of “Social Activity Activist”, etc.',
-    updatedAt: 'Last updated: 2026.05.16',
+    updatedAt: 'Last updated: 2026.05.28',
     footer: '© 2026 Guangtian Liu. All rights reserved.',
   },
 }
@@ -438,8 +445,81 @@ function SectionTitle({ children }) {
   return <h2 className="section-title">{children}</h2>
 }
 
-function ProjectMedia({ item }) {
+const normalizeProjectHeading = (heading) =>
+  heading
+    .replace(/（硕士）|（本科）|\(Master\)|\(Undergraduate\)/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+const splitProjectHeading = (heading) => {
+  const normalized = normalizeProjectHeading(heading)
+  const match = normalized.match(/^(\d{4}\.\d{2}\s*-\s*(?:\d{4}\.\d{2}|至今|Present))\s+(.+)$/)
+
+  if (!match) {
+    return { title: normalized }
+  }
+
+  const [, time, rest] = match
+  const roles = ['核心成员', '负责人', 'Core Member', 'Lead']
+  const role = roles.find((candidate) => rest === candidate || rest.endsWith(` ${candidate}`))
+
+  if (!role) {
+    return { time, title: rest }
+  }
+
+  return {
+    time,
+    title: rest.slice(0, -role.length).trim(),
+    role,
+  }
+}
+
+function EmphasizedText({ text }) {
+  const separator = text.includes('：') ? '：' : text.includes(':') ? ':' : ''
+
+  if (!separator) {
+    return text
+  }
+
+  const [label, ...rest] = text.split(separator)
+  const plainLabels = new Set([
+    '1.机械结构优化与样机组装',
+    '2.嵌入式控制与上位机开发',
+    '1. Mechanical structure optimization and prototype assembly',
+    '2. Embedded control and host-computer development',
+  ])
+
+  if (!rest.length || label.length > 72 || plainLabels.has(label)) {
+    return text
+  }
+
+  return (
+    <>
+      <strong>{label}{separator}</strong>
+      {rest.join(separator)}
+    </>
+  )
+}
+function ProjectHeading({ heading, level = 3 }) {
+  const Tag = `h${level}`
+  const parts = splitProjectHeading(heading)
+
+  if (!parts.time) {
+    return <Tag>{parts.title}</Tag>
+  }
+
+  return (
+    <Tag className="project-heading">
+      <span className="project-heading-time">{parts.time}</span>
+      <span className="project-heading-title">{parts.title}</span>
+      {parts.role ? <span className="project-heading-role">{parts.role}</span> : null}
+    </Tag>
+  )
+}
+
+function ProjectMedia({ item, labels, onPreview }) {
   const [hasError, setHasError] = useState(false)
+  const canPreview = !hasError && item.type !== 'video'
   const mediaClassName = [
     'card',
     'media-card',
@@ -451,7 +531,14 @@ function ProjectMedia({ item }) {
 
   return (
     <article className={mediaClassName}>
-      <h2>{item.title}</h2>
+      <div className="media-card-head">
+        <h2>{item.title}</h2>
+        {canPreview ? (
+          <button className="media-preview-button" type="button" onClick={() => onPreview(item)}>
+            {labels.imagePreviewButton}
+          </button>
+        ) : null}
+      </div>
       <div className="media-frame">
         {hasError ? (
           <div className="media-placeholder">{item.fallback}</div>
@@ -557,6 +644,39 @@ function ReportPreviewModal({ item, labels, onClose }) {
   )
 }
 
+function ImagePreviewModal({ item, labels, onClose }) {
+  if (!item) {
+    return null
+  }
+
+  return (
+    <div className="modal-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="modal-panel image-preview-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label={item.title}
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <div className="modal-head">
+          <h2>{item.title}</h2>
+          <button className="modal-close" type="button" onClick={onClose}>
+            {labels.closeButton}
+          </button>
+        </div>
+        <div className="image-preview-frame">
+          <img src={item.src} alt={item.alt} />
+        </div>
+        <div className="modal-actions">
+          <a className="inline-action secondary-inline-action" href={item.src} target="_blank" rel="noreferrer">
+            {labels.openInNewTabButton}
+          </a>
+        </div>
+      </section>
+    </div>
+  )
+}
+
 function DownloadConfirmModal({ item, labels, onCancel, onConfirm }) {
   if (!item) {
     return null
@@ -593,23 +713,25 @@ function DownloadConfirmModal({ item, labels, onCancel, onConfirm }) {
 
 function ProjectDetail({ labels, project, onBack }) {
   const [previewReport, setPreviewReport] = useState(null)
+  const [previewImage, setPreviewImage] = useState(null)
   const [pendingDownload, setPendingDownload] = useState(null)
 
   useEffect(() => {
-    if (!previewReport && !pendingDownload) {
+    if (!previewReport && !previewImage && !pendingDownload) {
       return undefined
     }
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         setPreviewReport(null)
+        setPreviewImage(null)
         setPendingDownload(null)
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [previewReport, pendingDownload])
+  }, [previewReport, previewImage, pendingDownload])
 
   const confirmDownload = () => {
     if (!pendingDownload) {
@@ -633,10 +755,10 @@ function ProjectDetail({ labels, project, onBack }) {
         </button>
         <p className="detail-kicker">{labels.projectIntroTitle}</p>
         <article className="card detail-card">
-          <h1>{project.heading}</h1>
+          <ProjectHeading heading={project.heading} level={1} />
           <div className="detail-list">
             {project.details.map((detail) => (
-              <p key={detail}>{detail}</p>
+              <p key={detail}><EmphasizedText text={detail} /></p>
             ))}
           </div>
         </article>
@@ -648,7 +770,7 @@ function ProjectDetail({ labels, project, onBack }) {
               </div>
               <div className="detail-media-grid">
                 {project.showcase.media.map((item) => (
-                  <ProjectMedia item={item} key={item.title} />
+                  <ProjectMedia item={item} labels={labels} onPreview={setPreviewImage} key={item.title} />
                 ))}
               </div>
             </section>
@@ -667,6 +789,7 @@ function ProjectDetail({ labels, project, onBack }) {
         ) : null}
       </div>
       <ReportPreviewModal item={previewReport} labels={labels} onClose={() => setPreviewReport(null)} />
+      <ImagePreviewModal item={previewImage} labels={labels} onClose={() => setPreviewImage(null)} />
       <DownloadConfirmModal
         item={pendingDownload}
         labels={labels}
@@ -817,7 +940,7 @@ function App() {
                       </div>
                       <div className="detail-list">
                         {experience.details.map((detail) => (
-                          <p key={detail}>{detail}</p>
+                          <p key={detail}><EmphasizedText text={detail} /></p>
                         ))}
                       </div>
                     </article>
@@ -832,21 +955,21 @@ function App() {
                 <div className="project-grid">
                   {t.projects.map((project) => (
                     <article className="card project-card" key={project.slug}>
-                      <div className="project-content">
-                        <h3>{project.heading}</h3>
-                        <div className="detail-list">
-                          {project.details.map((detail) => (
-                            <p key={detail}>{detail}</p>
-                          ))}
-                        </div>
+                      <div className="project-card-head">
+                        <ProjectHeading heading={project.heading} />
+                        <button
+                          className="action-button secondary-action project-detail-button"
+                          type="button"
+                          onClick={() => openProjectDetail(project.slug)}
+                        >
+                          {t.projectDetailButton}
+                        </button>
                       </div>
-                      <button
-                        className="action-button secondary-action project-detail-button"
-                        type="button"
-                        onClick={() => openProjectDetail(project.slug)}
-                      >
-                        {t.projectDetailButton}
-                      </button>
+                      <div className="detail-list">
+                        {project.details.map((detail) => (
+                          <p key={detail}><EmphasizedText text={detail} /></p>
+                        ))}
+                      </div>
                     </article>
                   ))}
                 </div>
@@ -859,7 +982,7 @@ function App() {
                 <div className="skills-grid">
                   {t.skills.map((skill) => (
                     <article className="card skill-card" key={skill}>
-                      <p>{skill}</p>
+                      <p><EmphasizedText text={skill} /></p>
                     </article>
                   ))}
                 </div>
@@ -870,7 +993,7 @@ function App() {
               <div className="section-inner">
                 <SectionTitle>{t.sections.other}</SectionTitle>
                 <article className="card simple-card">
-                  <p>{t.other}</p>
+                  <p><EmphasizedText text={t.other} /></p>
                 </article>
               </div>
             </section>
