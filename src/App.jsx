@@ -517,6 +517,21 @@ function ProjectHeading({ heading, level = 3 }) {
   )
 }
 
+function ProjectCardHeading({ heading }) {
+  const parts = splitProjectHeading(heading)
+
+  if (!parts.time) {
+    return <h3 className="project-card-title-only">{parts.title}</h3>
+  }
+
+  return (
+    <>
+      <span className="project-heading-time">{parts.time}</span>
+      <h3 className="project-heading-title">{parts.title}</h3>
+      {parts.role ? <span className="project-heading-role">{parts.role}</span> : null}
+    </>
+  )
+}
 function ProjectMedia({ item, labels, onPreview }) {
   const [hasError, setHasError] = useState(false)
   const canPreview = !hasError && item.type !== 'video'
@@ -800,12 +815,36 @@ function ProjectDetail({ labels, project, onBack }) {
   )
 }
 
+const getProjectSlugFromHash = () => {
+  if (typeof window === 'undefined') {
+    return null
+  }
+
+  const prefix = '#project-'
+
+  if (!window.location.hash.startsWith(prefix)) {
+    return null
+  }
+
+  return decodeURIComponent(window.location.hash.slice(prefix.length))
+}
+
 function App() {
   const [language, setLanguage] = useState('zh')
-  const [selectedProjectSlug, setSelectedProjectSlug] = useState(null)
+  const [selectedProjectSlug, setSelectedProjectSlug] = useState(() => getProjectSlugFromHash())
   const [photoLoaded, setPhotoLoaded] = useState(true)
   const t = content[language]
   const selectedProject = t.projects.find((project) => project.slug === selectedProjectSlug)
+
+  useEffect(() => {
+    const syncProjectFromHash = () => {
+      setSelectedProjectSlug(getProjectSlugFromHash())
+    }
+
+    syncProjectFromHash()
+    window.addEventListener('hashchange', syncProjectFromHash)
+    return () => window.removeEventListener('hashchange', syncProjectFromHash)
+  }, [])
 
   useEffect(() => {
     if (selectedProjectSlug) {
@@ -956,7 +995,7 @@ function App() {
                   {t.projects.map((project) => (
                     <article className="card project-card" key={project.slug}>
                       <div className="project-card-head">
-                        <ProjectHeading heading={project.heading} />
+                        <ProjectCardHeading heading={project.heading} />
                         <button
                           className="action-button secondary-action project-detail-button"
                           type="button"
