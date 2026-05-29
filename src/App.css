@@ -455,8 +455,8 @@ main,
 
 .project-card-head {
   display: grid;
-  grid-template-columns: 148px minmax(360px, 520px) 96px minmax(0, 1fr) auto;
-  gap: 8px 28px;
+  grid-template-columns: max-content minmax(320px, 520px) max-content minmax(0, 1fr) auto;
+  gap: 8px 30px;
   align-items: center;
   min-width: 0;
 }
@@ -515,6 +515,7 @@ main,
   min-width: 0;
   margin: 0;
   text-align: center;
+  white-space: normal;
 }
 
 .project-card-title-only {
@@ -523,7 +524,7 @@ main,
 }
 
 .detail-card .project-heading {
-  grid-template-columns: 156px minmax(0, 580px) 110px;
+  grid-template-columns: max-content minmax(0, 580px) max-content;
   gap: 8px 32px;
   margin: 0 0 18px;
   font-size: var(--fs-section-title);
@@ -1190,7 +1191,7 @@ main,
   }
 
   .project-card-head {
-    grid-template-columns: 132px minmax(220px, 1fr) 88px auto;
+    grid-template-columns: max-content minmax(220px, 1fr) max-content auto;
     gap: 8px 18px;
   }
 
@@ -1199,7 +1200,7 @@ main,
   }
 
   .detail-card .project-heading {
-    grid-template-columns: 132px minmax(0, 1fr) 88px;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
     gap: 6px 20px;
   }
 
