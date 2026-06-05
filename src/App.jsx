@@ -10,6 +10,8 @@ const content = {
     projectIntroTitle: '项目介绍',
     backToProjects: '返回项目经历',
     certificateButton: '实习证明',
+    certificateUnavailableTitle: '实习证明',
+    certificateUnavailableText: '暂无实习证明',
     mediaAreaTitle: '样机实物',
     reportAreaTitle: '报告材料',
     sourceAreaTitle: '源代码区',
@@ -32,20 +34,18 @@ const content = {
       { id: 'experience', label: '实习经历' },
       { id: 'projects', label: '项目经历' },
       { id: 'skills', label: '专业技能' },
-      { id: 'other', label: '荣誉获奖' },
     ],
     sections: {
       education: '教育背景',
       experience: '实习经历',
       projects: '项目经历',
       skills: '专业技能',
-      other: '荣誉获奖',
     },
     education: {
       schools: [
         {
           school: '香港中文大学(深圳)',
-          major: '能源科学与工程（AI+电气方向）',
+          major: '能源科学与工程（电气方向）',
           performance: '绩点：3.44/4',
           time: '2025.09-2027.06',
         },
@@ -57,29 +57,84 @@ const content = {
         },
       ],
       courses:
-        '主修课程：电路理论、电力电子技术、电工学、半导体物理与器件、模拟电子技术、控制工程基础、机器人与智能系统、Python 编程（从入门到实践）、机器学习、深度学习入门（基于 Python 的理论与实现）、智能电网、电力系统、风力发电系统与控制技术、风力机原理、光伏器件与系统、太阳能工程、储能原理与技术、传热传质学、工程热力学、流体力学',
+        '主修课程：Python 编程、C++、机器学习、深度学习入门、动手学深度学习、电路理论、电力电子技术、电工学、半导体物理与器件、风力发电系统与控制技术、风力机原理、光伏器件与系统、太阳能工程、智能电网、电力系统、控制工程基础、储能原理与技术',
+      extras: [
+        {
+          title: '科研成果',
+          lines: [
+            '[1] T. Xu, G. Liu, C. Ma, and S. Lei, “Identifying Critical Meteorological Factors for Wind Power Generation under Heatwaves,” manuscript in preparation, 2026.',
+            '[2] G. Liu et al., “Multi-Timescale Power System Planning Under Joint Risks of Persistent Renewable Droughts and Seasonal Energy Imbalance,” manuscript in preparation, 2026.',
+          ],
+        },
+        {
+          title: '荣誉获奖',
+          lines: [
+            '南京理工大学校级奖学金 4 次；“社会活动积极分子”称号；“第一届可再生能源大赛优秀奖”等。',
+          ],
+        },
+      ],
     },
     experiences: [
       {
+        id: 'megdu',
+        time: '2026.04-2026.06',
+        company: '上海麦格度储能科技有限公司',
+        position: '算法工程师（电力交易）',
+        details: [
+          '1.深度学习时序预测：基于深度学习时序模型处理负荷、风光出力、电价等时序数据，开展预测模型构建、训练与结果分析。',
+          '2.虚拟电厂调度算法：搭建虚拟电厂（VPP）资源聚合模型，参与光伏、储能、充电桩等分布式能源优化调度算法研发。',
+          '3.电力市场交易建模：面向现货、辅助服务、需求响应等交易场景，构建报价约束、收益测算与市场出清规则模型，支持售电交易策略优化；协助完成虚拟电厂/售电平台核心算法模块开发、模型测试与技术方案整理，支撑算法工程化落地。',
+        ],
+      },
+      {
+        id: 'naura',
         time: '2025.06-2025.08',
-        company: '北京北方华创微电子装备有限公司',
+        company: '北方华创微电子装备有限公司',
         position: '电气开发工程师',
         certificateHref: publicAsset('naura-proof.pdf'),
         details: [
-          '1.物料管理：新物料的申请、发布以及变更物料图纸的修改、检入、发布以及 BOM 的发布。',
-          '2.电气开发：基于 SWE 完成电缆图、配线图的核对修正；基于中望 CAD 对图纸进行校对修正。',
-          '3.洁净间机台测试：Safety Check 测试—协助制造人员完成设备出厂前的安全测试，确保设备故障预警功能正常；万用表等仪器—对清洗机腔室电机 Driver Converter 的输入输出电压进行测试，累计进行 300+ 次；SOP 编写—阅读限温器等产品说明书，编写符合设备要求的 SOP 文件，协助产品的软件配置。',
+          '1.PLM 管理：负责清洗机机台物料的 PLM 流程管理，包括物料申请、图纸修改与检入、物料发布、BOM 维护及变更发布。',
+          '2.电气开发：参与机台器件选型并使用 SWE / CAD 完成机台电缆图、配线图等原理图的绘制、核对与修正，累计 200+ 个原理图。',
+          '3.洁净间测试：Safety Check 测试—协助制造人员完成设备出厂前的安全测试，确保设备故障预警功能正常；万用表等仪器—对清洗机腔室电机 Driver Converter 的输入输出电压进行测试，累计进行 300+ 次。',
         ],
       },
     ],
     projects: [
       {
+        slug: 'wind-power-forecasting',
+        heading:
+          '2026.04-至今 基于深度学习的风电长时出力预测模型研究 核心成员',
+        details: [
+          '1.项目介绍：为有效预测识别极端风电出力场景，开展风电长时出力预测及持续低出力事件识别研究。',
+          '2.项目职责：基于风电场气象数据与风电场历史出力数据，完成关键气象特征筛选，构建持续低出力事件识别判据；复现并训练 TiDE、TimeXer 等时序预测模型，完成超参数调优及多模型预测性能对比。使用 PyTorch 构建融合历史出力、气象与未来气象特征的长时风电预测模型，实现风电长时出力预测性能提升。',
+        ],
+      },
+      {
+        slug: 'heatwave-wind-curtailment',
+        heading:
+          '2026.01-至今 高温热浪下风电出力削减关键气象因子识别研究 核心成员',
+        details: [
+          '1.项目介绍：基于西班牙十年小时级风电与 ERA5 气象数据，研究热浪下风电削减特征、关键气象因子及区域风险模式。',
+          '2.项目职责：负责西班牙小时级风电出力、ERA5 气象变量及装机容量数据处理，完成数据清洗、时间对齐、空间聚合与省级匹配；构建热浪识别与风电削减量化方法，并结合 GMM 聚类、岭回归和 PCA/PCR 分析关键气象因子及响应模式。',
+        ],
+      },
+      {
+        slug: 'energy-storage-optimization',
+        heading:
+          '2025.09-至今 高比例新能源电力系统多时间尺度储能建模与调度 负责人',
+        details: [
+          '1.项目介绍：高比例风光给新型电力系统带来多时间尺度能量失衡问题，为此构建多时间尺度储能模型以及调度方法。',
+          '2.项目职责：针对高比例风光电力系统中持续多日低出力与季节低出力问题，构建大规模混合整数线性规划（MILP）优化模型；建立电池储能、短期/长期储氢的多时间尺度储能数学模型，刻画日内、多日与季节尺度的多时间尺度调节能力。基于机会约束和随机优化思想建模新能源出力不确定性，使用 MATLAB / YALMIP / GUROBI 完成算例验证。',
+        ],
+      },
+      {
         slug: 'dexhand',
         heading:
           '2026.02-2026.06 DexHand 灵巧手样机制作与上位机控制 核心成员',
         details: [
-          '1.机械结构优化与样机组装：完成物料采购、结构件 3D 打印、机械结构及零部件优化与最终样机组装。',
-          '2.嵌入式控制与上位机开发：基于 ESP32 与 PCA9685 开发多舵机控制程序，通过 I2C 总线控制 PCA9685 输出多路 PWM 信号驱动舵机；基于 PySide6 框架开发上位机控制界面，并通过串口通信完成上位机与下位机的数据交互和舵机动作控制。',
+          '1.项目介绍：面向多自由度仿生灵巧手控制需求，搭建五指 DexHand 灵巧手样机及舵机控制系统。',
+          '2.项目职责：机械结构优化与样机组装：完成物料采购、结构件 3D 打印、机械结构及零部件优化与最终样机组装。嵌入式控制与上位机开发：自主开发基于 ESP32 与 PCA9685 的 15 路舵机控制程序，实现 I2C 通信下的多路 PWM 输出与舵机驱动；基于 PySide6 开发上位机控制界面，通过串口通信完成指令交互与动作控制。',
+          '3.项目成果：灵巧手样机实物；舵机控制程序及上位机；https://liuguangtian.github.io/website/#project-dexhand',
         ],
         showcase: {
           mediaTitle: '灵巧手样机实物',
@@ -182,44 +237,14 @@ const content = {
             },
           ],
         },
-      },
-      {
-        slug: 'wind-power-forecasting',
-        heading:
-          '2026.04-至今 基于深度学习的风电长时出力预测模型研究 负责人',
-        details: [
-          '1.基于 ERA5 气象数据与风电场历史出力数据，完成数据清洗、时间对齐、相关性分析与关键气象特征筛选，构建持续低出力事件识别判据；',
-          '2.基于小时级风电数据集，复现并训练 LSTM、TiDE、TimeXer 等时序预测模型，完成滑动窗口样本构建、超参数调优及多模型预测性能对比，',
-          '3.基于 PyTorch 自主搭建融合历史出力、历史气象与未来气象特征的长时风电预测模型，完成模型训练、误差评估、结果可视化及低出力过程预测分析。',
-        ],
-      },
-      {
-        slug: 'energy-storage-optimization',
-        heading:
-          '2025.09-至今 高比例新能源电力系统多时间尺度储能调度与优化规划 负责人',
-        details: [
-          '1.针对高比例风光电力系统中持续多日低出力与季节低出力问题，构建大规模混合整数线性规划（MILP）电力系统优化模型。',
-          '2.建立电池储能、短期及长期储氢的容量规划-运行调度优化模型，刻画日内、多日与季节尺度的多时间尺度调节能力。',
-          '3.基于机会约束和随机优化思想建模新能源出力不确定性，使用 MATLAB / YALMIP / GUROBI 完成算例验证。',
-        ],
-      },
-      {
-        slug: 'wind-turbine-blades',
-        heading:
-          '2025.01-2025.06 结构变形对风力机超长柔性叶片气动弹性影响分析 负责人',
-        details: [
-          '本课题首先基于 OpenFAST 多物理场开源平台对风力机叶片建模以及对其可靠性进行仿真验证，之后系统研究了 5MW、10MW、22MW 三种基于 FFA-W3、不同展长的风力机柔性叶片在额定风速下的动态变形，最后基于 IEA-22-280-RWT 风力机研究超长柔性叶片的动态变形对叶片气动性能及风力机整体性能的影响。',
-        ],
-      },
+      }
     ],
     skills: [
-      '英语水平：已通过 CET4&CET6；雅思 6.5 分（2025.04）。',
-      '编程水平：掌握 Python、C++基本语法，可基于 VS Code + Codex / Claude 进行 Vibe Coding，熟悉 GPT / Gemini 等 AI 工具；',
-      '专业软件：熟悉 MATLAB / Python 电力系统建模；SW、SWE、中望 CAD 等建模以及电气绘图；Fluent、OpenFAST 流体仿真',
+      '英语水平：已通过 CET4 & CET6；雅思 6.5 分（2025.04）；英语可进行日常交流。',
+      '编程水平：掌握 Python、C++；Notepad++、Docker、Git、Conda、Codex、VS Code。',
+      '专业软件：熟悉 MATLAB / Python 电力系统建模；SW、SWE、中望 CAD 建模以及电气绘图；Fluent、OpenFAST 流体仿真。',
     ],
-    other:
-      '南京理工大学校级奖学金 4 次；“社会活动积极分子”称号等。',
-    updatedAt: '更新时间：2026.05.28',
+    updatedAt: '更新时间：2026.06.05',
     footer: '© 2026 刘广天。保留所有权利。',
   },
   en: {
@@ -228,6 +253,8 @@ const content = {
     projectIntroTitle: 'Project Introduction',
     backToProjects: 'Back to Projects',
     certificateButton: 'Internship Certificate',
+    certificateUnavailableTitle: 'Internship Certificate',
+    certificateUnavailableText: 'No internship certificate yet.',
     mediaAreaTitle: 'Prototype Photos',
     reportAreaTitle: 'Reports',
     sourceAreaTitle: 'Source Code',
@@ -250,20 +277,18 @@ const content = {
       { id: 'experience', label: 'Experience' },
       { id: 'projects', label: 'Projects' },
       { id: 'skills', label: 'Skills' },
-      { id: 'other', label: 'Honors' },
     ],
     sections: {
       education: 'Education',
       experience: 'Experience',
       projects: 'Projects',
       skills: 'Skills',
-      other: 'Honors',
     },
     education: {
       schools: [
         {
           school: 'The Chinese University of Hong Kong, Shenzhen',
-          major: 'Energy Science and Engineering (AI + Electrical Track)',
+          major: 'Energy Science and Engineering (Electrical Track)',
           performance: 'GPA: 3.44/4',
           time: '2025.09-2027.06',
         },
@@ -275,29 +300,84 @@ const content = {
         },
       ],
       courses:
-        'Major Courses: Circuit Theory, Power Electronics, Electrical Engineering, Semiconductor Physics and Devices, Analog Electronics, Fundamentals of Control Engineering, Robotics and Intelligent Systems, Python Programming (from Beginner to Practice), Machine Learning, Introduction to Deep Learning (Python-Based Theory and Implementation), Smart Grid, Power Systems, Wind Power Generation Systems and Control Technology, Principles of Wind Turbines, Photovoltaic Devices and Systems, Solar Energy Engineering, Energy Storage Principles and Technology, Heat and Mass Transfer, Engineering Thermodynamics, Fluid Mechanics',
+        'Major Courses: Python Programming, C++, Machine Learning, Introduction to Deep Learning, Dive into Deep Learning, Circuit Theory, Power Electronics, Electrical Engineering, Semiconductor Physics and Devices, Wind Power Generation Systems and Control Technology, Principles of Wind Turbines, Photovoltaic Devices and Systems, Solar Energy Engineering, Smart Grid, Power Systems, Fundamentals of Control Engineering, Energy Storage Principles and Technology',
+      extras: [
+        {
+          title: 'Research Output',
+          lines: [
+            '[1] T. Xu, G. Liu, C. Ma, and S. Lei, “Identifying Critical Meteorological Factors for Wind Power Generation under Heatwaves,” manuscript in preparation, 2026.',
+            '[2] G. Liu et al., “Multi-Timescale Power System Planning Under Joint Risks of Persistent Renewable Droughts and Seasonal Energy Imbalance,” manuscript in preparation, 2026.',
+          ],
+        },
+        {
+          title: 'Honors and Awards',
+          lines: [
+            'Nanjing University of Science and Technology university-level scholarship 4 times; title of “Social Activity Activist”; First Renewable Energy Competition Excellence Award, etc.',
+          ],
+        },
+      ],
     },
     experiences: [
       {
+        id: 'megdu',
+        time: '2026.04-2026.06',
+        company: 'Shanghai Megdu Energy Storage Technology Co., Ltd.',
+        position: 'Algorithm Engineer (Power Trading)',
+        details: [
+          '1. Deep-learning time-series forecasting: processed load, wind-solar output, electricity prices, and other time-series data using deep-learning models; built, trained, and analyzed forecasting models.',
+          '2. Virtual power plant dispatch algorithms: built virtual power plant (VPP) resource aggregation models and participated in optimization dispatch algorithm R&D for distributed resources such as photovoltaics, energy storage, and charging piles.',
+          '3. Power market trading modeling: for spot markets, ancillary services, demand response, and other trading scenarios, built quotation constraints, revenue estimation, and market-clearing rule models to support retail electricity trading strategy optimization; assisted development, model testing, and technical documentation for core algorithm modules of virtual power plant and retail electricity platforms.',
+        ],
+      },
+      {
+        id: 'naura',
         time: '2025.06-2025.08',
-        company: 'Beijing NAURA Microelectronics Equipment Co., Ltd.',
+        company: 'NAURA Microelectronics Equipment Co., Ltd.',
         position: 'Electrical Development Engineer',
         certificateHref: publicAsset('naura-proof.pdf'),
         details: [
-          '1. Material management: applied for and released new materials; revised, checked in, and released changed material drawings; released BOMs.',
-          '2. Electrical development: checked and corrected cable diagrams and wiring diagrams based on SWE; checked and corrected drawings based on ZWCAD.',
-          '3. Cleanroom equipment testing: Safety Check tests - assisted manufacturing staff with pre-shipment equipment safety tests to ensure normal fault-warning functions; instruments such as multimeters - tested input and output voltages of the Driver Converter for cleaning machine chamber motors, 300+ times in total; SOP writing - read product manuals such as temperature limiters, wrote SOP files meeting equipment requirements, and assisted product software configuration.',
+          '1. PLM management: managed PLM workflows for cleaning equipment materials, including material applications, drawing revisions and check-ins, material releases, BOM maintenance, and change releases.',
+          '2. Electrical development: participated in equipment component selection and used SWE / CAD to draw, check, and revise equipment cable diagrams, wiring diagrams, and other schematics, totaling 200+ schematic drawings.',
+          '3. Cleanroom testing: Safety Check tests - assisted manufacturing staff with pre-shipment safety tests to ensure normal fault-warning functions; instruments such as multimeters - tested input and output voltages of the Driver Converter for cleaning machine chamber motors, 300+ times in total.',
         ],
       },
     ],
     projects: [
       {
+        slug: 'wind-power-forecasting',
+        heading:
+          '2026.04-Present Long-Term Wind Power Output Forecasting Model Research Based on Deep Learning Core Member',
+        details: [
+          '1. Project introduction: conducted long-term wind power output forecasting and persistent low-output event identification to better predict and identify extreme wind power output scenarios.',
+          '2. Project responsibilities: based on wind-farm meteorological data and historical wind power output data, completed key meteorological feature selection and built criteria for persistent low-output event identification; reproduced and trained TiDE, TimeXer, and other time-series forecasting models, completing hyperparameter tuning and multi-model forecasting performance comparison. Used PyTorch to build a long-term wind power forecasting model integrating historical output, meteorological features, and future meteorological features, improving long-term wind power forecasting performance.',
+        ],
+      },
+      {
+        slug: 'heatwave-wind-curtailment',
+        heading:
+          '2026.01-Present Wind Power Curtailment and Critical Meteorological Factor Identification under Heatwaves Core Member',
+        details: [
+          '1. Project introduction: based on ten years of hourly wind power data in Spain and ERA5 meteorological data, studied wind power curtailment characteristics, critical meteorological factors, and regional risk patterns under heatwaves.',
+          '2. Project responsibilities: processed Spanish hourly wind power output, ERA5 meteorological variables, and installed-capacity data, completing data cleaning, time alignment, spatial aggregation, and province-level matching; built heatwave identification and wind power curtailment quantification methods, and analyzed critical meteorological factors and response patterns using GMM clustering, ridge regression, and PCA/PCR.',
+        ],
+      },
+      {
+        slug: 'energy-storage-optimization',
+        heading:
+          '2025.09-Present Multi-Time-Scale Energy Storage Modeling and Dispatch for High-Penetration Renewable Power Systems Lead',
+        details: [
+          '1. Project introduction: high-penetration wind and solar power introduce multi-time-scale energy imbalance challenges to new power systems; this project builds multi-time-scale energy storage models and dispatch methods.',
+          '2. Project responsibilities: for persistent multi-day low-output and seasonal low-output issues in high-penetration wind-solar power systems, built a large-scale mixed-integer linear programming (MILP) optimization model; established multi-time-scale mathematical models for battery energy storage and short-/long-term hydrogen storage, characterizing regulation capability across intraday, multi-day, and seasonal scales. Modeled renewable-output uncertainty based on chance constraints and stochastic optimization ideas, and completed case validation using MATLAB / YALMIP / GUROBI.',
+        ],
+      },
+      {
         slug: 'dexhand',
         heading:
           '2026.02-2026.06 DexHand Dexterous Hand Prototype Fabrication and Host-Computer Control Core Member',
         details: [
-          '1. Mechanical structure optimization and prototype assembly: completed material procurement, structural part 3D printing, mechanical structure and component optimization, and final prototype assembly.',
-          '2. Embedded control and host-computer development: developed a multi-servo control program based on ESP32 and PCA9685, controlled PCA9685 over the I2C bus to output multi-channel PWM signals for servo driving; developed a host-computer control interface with PySide6, and completed data exchange and servo motion control between the host computer and lower controller through serial communication.',
+          '1. Project introduction: built a five-finger DexHand prototype and servo control system for multi-DOF bionic dexterous hand control requirements.',
+          '2. Project responsibilities: mechanical structure optimization and prototype assembly: completed material procurement, structural part 3D printing, mechanical structure and component optimization, and final prototype assembly. Embedded control and host-computer development: independently developed a 15-channel servo control program based on ESP32 and PCA9685, implemented multi-channel PWM output and servo driving over I2C communication; developed the host-computer control interface with PySide6 and completed command interaction and motion control through serial communication.',
+          '3. Project outcomes: DexHand prototype; servo control program and host computer; https://liuguangtian.github.io/website/#project-dexhand',
         ],
         showcase: {
           mediaTitle: 'DexHand Prototype Photos',
@@ -400,45 +480,85 @@ const content = {
             },
           ],
         },
-      },
-      {
-        slug: 'wind-power-forecasting',
-        heading:
-          '2026.04-Present Research on Long-Term Wind Power Output Forecasting Models Based on Deep Learning Lead',
-        details: [
-          '1. Based on ERA5 meteorological data and wind-farm historical output data, completed data cleaning, time alignment, correlation analysis, and key meteorological feature selection; built criteria for identifying continuous low-output events; reproduced and trained LSTM, TiDE, TimeXer, and other time-series forecasting models on hourly wind-power datasets, completing sliding-window sample construction, hyperparameter tuning, and multi-model performance comparison.',
-          '2. Built a long-term wind-power forecasting model in PyTorch that fuses historical output, historical meteorological features, and future meteorological features; completed model training, error evaluation, result visualization, and low-output process forecasting analysis.',
-        ],
-      },
-      {
-        slug: 'energy-storage-optimization',
-        heading:
-          '2025.09-Present Multi-Time-Scale Energy Storage Dispatch and Optimization Planning for High-Penetration Renewable Power Systems Lead',
-        details: [
-          '1. For high-penetration wind-solar power systems with continuous multi-day low-output and seasonal low-output issues, built a large-scale mixed-integer linear programming (MILP) power-system optimization model.',
-          '2. Established a capacity-planning and operation-dispatch optimization model for battery energy storage, short-term hydrogen storage, and long-term hydrogen storage, characterizing multi-time-scale regulation capability across intraday, multi-day, and seasonal scales.',
-          '3. Modeled renewable-output uncertainty based on chance constraints and stochastic optimization ideas, and completed case validation using MATLAB / YALMIP / GUROBI.',
-        ],
-      },
-      {
-        slug: 'wind-turbine-blades',
-        heading:
-          '2025.01-2025.06 Analysis of the Aeroelastic Impact of Structural Deformation on Ultra-Long Flexible Wind Turbine Blades Lead',
-        details: [
-          'This project first modeled wind turbine blades based on the OpenFAST multi-physics open-source platform and verified reliability through simulation; then systematically studied the dynamic deformation at rated wind speed of 5MW, 10MW, and 22MW flexible wind turbine blades based on FFA-W3 with different spans; finally, based on the IEA-22-280-RWT wind turbine, studied the impact of dynamic deformation of ultra-long flexible blades on blade aerodynamic performance and overall wind turbine performance.',
-        ],
-      },
+      }
     ],
     skills: [
-      'English: passed CET4&CET6; IELTS 6.5 (2025.04).',
-      'Programming: know Python and C++ basic syntax; can perform Vibe Coding based on VS Code + Codex / Claude; familiar with AI tools such as GPT / Gemini;',
-      'Professional Software: familiar with MATLAB / Python power system modeling; SW, SWE, ZWCAD modeling and electrical drawing; Fluent and OpenFAST fluid simulation',
+      'English: passed CET4 & CET6; IELTS 6.5 (2025.04); able to communicate in daily English.',
+      'Programming: Python and C++; Notepad++, Docker, Git, Conda, Codex, VS Code.',
+      'Professional Software: MATLAB / Python power system modeling; SW, SWE, ZWCAD modeling and electrical drawing; Fluent and OpenFAST fluid simulation.',
     ],
-    other:
-      'Honors and Awards: Nanjing University of Science and Technology university-level scholarship 4 times; title of “Social Activity Activist”, etc.',
-    updatedAt: 'Last updated: 2026.05.28',
+    updatedAt: 'Last updated: 2026.06.05',
     footer: '© 2026 Guangtian Liu. All rights reserved.',
   },
+}
+
+const PROJECT_ORDER_STORAGE_KEY = 'liuguangtian-project-order'
+const EXPERIENCE_ORDER_STORAGE_KEY = 'liuguangtian-experience-order'
+
+const getExperienceId = (experience) => experience.id ?? `${experience.time}-${experience.company}`
+
+const normalizeProjectOrder = (order, projects = content.zh.projects) => {
+  const knownSlugs = projects.map((project) => project.slug)
+  const uniqueKnownOrder = Array.isArray(order)
+    ? order.filter((slug, index, array) => knownSlugs.includes(slug) && array.indexOf(slug) === index)
+    : []
+
+  return [
+    ...uniqueKnownOrder,
+    ...knownSlugs.filter((slug) => !uniqueKnownOrder.includes(slug)),
+  ]
+}
+
+const getStoredProjectOrder = () => {
+  if (typeof window === 'undefined') {
+    return normalizeProjectOrder()
+  }
+
+  try {
+    return normalizeProjectOrder(JSON.parse(window.localStorage.getItem(PROJECT_ORDER_STORAGE_KEY)))
+  } catch {
+    return normalizeProjectOrder()
+  }
+}
+
+const getOrderedProjects = (projects, order) => {
+  const normalizedOrder = normalizeProjectOrder(order, projects)
+
+  return normalizedOrder
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter(Boolean)
+}
+
+const normalizeExperienceOrder = (order, experiences = content.zh.experiences) => {
+  const knownIds = experiences.map(getExperienceId)
+  const uniqueKnownOrder = Array.isArray(order)
+    ? order.filter((id, index, array) => knownIds.includes(id) && array.indexOf(id) === index)
+    : []
+
+  return [
+    ...uniqueKnownOrder,
+    ...knownIds.filter((id) => !uniqueKnownOrder.includes(id)),
+  ]
+}
+
+const getStoredExperienceOrder = () => {
+  if (typeof window === 'undefined') {
+    return normalizeExperienceOrder()
+  }
+
+  try {
+    return normalizeExperienceOrder(JSON.parse(window.localStorage.getItem(EXPERIENCE_ORDER_STORAGE_KEY)))
+  } catch {
+    return normalizeExperienceOrder()
+  }
+}
+
+const getOrderedExperiences = (experiences, order) => {
+  const normalizedOrder = normalizeExperienceOrder(order, experiences)
+
+  return normalizedOrder
+    .map((id) => experiences.find((experience) => getExperienceId(experience) === id))
+    .filter(Boolean)
 }
 
 function SectionTitle({ children }) {
@@ -474,6 +594,35 @@ const splitProjectHeading = (heading) => {
   }
 }
 
+const getLabeledTextParts = (text) => {
+  const separator = text.includes('：') ? '：' : text.includes(':') ? ':' : ''
+
+  if (!separator) {
+    return null
+  }
+
+  const [label, ...rest] = text.split(separator)
+
+  if (!rest.length || label.length > 72) {
+    return null
+  }
+
+  return {
+    label: label + separator,
+    body: rest.join(separator).trimStart(),
+  }
+}
+
+const getCourseItems = (courses) => {
+  const parts = getLabeledTextParts(courses)
+  const body = parts?.body ?? courses
+
+  return body
+    .split('、')
+    .map((course) => course.trim())
+    .filter(Boolean)
+}
+
 function EmphasizedText({ text }) {
   const separator = text.includes('：') ? '：' : text.includes(':') ? ':' : ''
 
@@ -500,6 +649,32 @@ function EmphasizedText({ text }) {
     </>
   )
 }
+function DetailText({ text }) {
+  const parts = getLabeledTextParts(text)
+
+  if (!parts) {
+    return <p>{text}</p>
+  }
+
+  const plainLabels = new Set([
+    '1.机械结构优化与样机组装：',
+    '2.嵌入式控制与上位机开发：',
+    '1. Mechanical structure optimization and prototype assembly:',
+    '2. Embedded control and host-computer development:',
+  ])
+
+  if (plainLabels.has(parts.label)) {
+    return <p>{text}</p>
+  }
+
+  return (
+    <p className="detail-row">
+      <strong className="detail-label">{parts.label}</strong>
+      <span className="detail-copy">{parts.body}</span>
+    </p>
+  )
+}
+
 function ProjectHeading({ heading, level = 3 }) {
   const Tag = `h${level}`
   const parts = splitProjectHeading(heading)
@@ -726,6 +901,35 @@ function DownloadConfirmModal({ item, labels, onCancel, onConfirm }) {
   )
 }
 
+
+function CertificateNoticeModal({ isOpen, labels, onClose }) {
+  if (!isOpen) {
+    return null
+  }
+
+  return (
+    <div className="modal-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="modal-panel notice-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label={labels.certificateUnavailableTitle}
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <div className="modal-head">
+          <h2>{labels.certificateUnavailableTitle}</h2>
+        </div>
+        <p className="notice-message">{labels.certificateUnavailableText}</p>
+        <div className="modal-actions">
+          <button className="inline-action" type="button" onClick={onClose}>
+            {labels.closeButton}
+          </button>
+        </div>
+      </section>
+    </div>
+  )
+}
+
 function ProjectDetail({ labels, project, onBack }) {
   const [previewReport, setPreviewReport] = useState(null)
   const [previewImage, setPreviewImage] = useState(null)
@@ -773,7 +977,7 @@ function ProjectDetail({ labels, project, onBack }) {
           <ProjectHeading heading={project.heading} level={1} />
           <div className="detail-list">
             {project.details.map((detail) => (
-              <p key={detail}><EmphasizedText text={detail} /></p>
+              <DetailText text={detail} key={detail} />
             ))}
           </div>
         </article>
@@ -833,7 +1037,16 @@ function App() {
   const [language, setLanguage] = useState('zh')
   const [selectedProjectSlug, setSelectedProjectSlug] = useState(() => getProjectSlugFromHash())
   const [photoLoaded, setPhotoLoaded] = useState(true)
+  const [certificateNoticeOpen, setCertificateNoticeOpen] = useState(false)
+  const [projectOrder, setProjectOrder] = useState(getStoredProjectOrder)
+  const [experienceOrder, setExperienceOrder] = useState(getStoredExperienceOrder)
+  const [draggingProjectSlug, setDraggingProjectSlug] = useState(null)
+  const [dropTargetProjectSlug, setDropTargetProjectSlug] = useState(null)
+  const [draggingExperienceId, setDraggingExperienceId] = useState(null)
+  const [dropTargetExperienceId, setDropTargetExperienceId] = useState(null)
   const t = content[language]
+  const orderedProjects = getOrderedProjects(t.projects, projectOrder)
+  const orderedExperiences = getOrderedExperiences(t.experiences, experienceOrder)
   const selectedProject = t.projects.find((project) => project.slug === selectedProjectSlug)
 
   useEffect(() => {
@@ -852,6 +1065,43 @@ function App() {
     }
   }, [selectedProjectSlug])
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    window.localStorage.setItem(
+      PROJECT_ORDER_STORAGE_KEY,
+      JSON.stringify(normalizeProjectOrder(projectOrder, t.projects)),
+    )
+  }, [projectOrder, t.projects])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    window.localStorage.setItem(
+      EXPERIENCE_ORDER_STORAGE_KEY,
+      JSON.stringify(normalizeExperienceOrder(experienceOrder, t.experiences)),
+    )
+  }, [experienceOrder, t.experiences])
+
+  useEffect(() => {
+    if (!certificateNoticeOpen) {
+      return undefined
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setCertificateNoticeOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [certificateNoticeOpen])
+
   const toggleLanguage = () => {
     setLanguage((current) => (current === 'zh' ? 'en' : 'zh'))
   }
@@ -868,6 +1118,99 @@ function App() {
   const openProjectDetail = (slug) => {
     setSelectedProjectSlug(slug)
     window.history.replaceState(null, '', `#project-${slug}`)
+  }
+
+
+  const moveProject = (sourceSlug, targetSlug) => {
+    if (!sourceSlug || !targetSlug || sourceSlug === targetSlug) {
+      return
+    }
+
+    setProjectOrder((currentOrder) => {
+      const normalizedOrder = normalizeProjectOrder(currentOrder, t.projects)
+      const sourceIndex = normalizedOrder.indexOf(sourceSlug)
+      const targetIndex = normalizedOrder.indexOf(targetSlug)
+
+      if (sourceIndex < 0 || targetIndex < 0) {
+        return currentOrder
+      }
+
+      const nextOrder = [...normalizedOrder]
+      const [movedSlug] = nextOrder.splice(sourceIndex, 1)
+      nextOrder.splice(targetIndex, 0, movedSlug)
+      return nextOrder
+    })
+  }
+
+  const handleProjectDragStart = (event, slug) => {
+    setDraggingProjectSlug(slug)
+    event.dataTransfer.effectAllowed = 'move'
+    event.dataTransfer.setData('text/plain', slug)
+  }
+
+  const handleProjectDragOver = (event, slug) => {
+    event.preventDefault()
+    event.dataTransfer.dropEffect = 'move'
+    setDropTargetProjectSlug(slug)
+  }
+
+  const handleProjectDrop = (event, slug) => {
+    event.preventDefault()
+    const sourceSlug = draggingProjectSlug || event.dataTransfer.getData('text/plain')
+    moveProject(sourceSlug, slug)
+    setDraggingProjectSlug(null)
+    setDropTargetProjectSlug(null)
+  }
+
+  const handleProjectDragEnd = () => {
+    setDraggingProjectSlug(null)
+    setDropTargetProjectSlug(null)
+  }
+
+  const moveExperience = (sourceId, targetId) => {
+    if (!sourceId || !targetId || sourceId === targetId) {
+      return
+    }
+
+    setExperienceOrder((currentOrder) => {
+      const normalizedOrder = normalizeExperienceOrder(currentOrder, t.experiences)
+      const sourceIndex = normalizedOrder.indexOf(sourceId)
+      const targetIndex = normalizedOrder.indexOf(targetId)
+
+      if (sourceIndex < 0 || targetIndex < 0) {
+        return currentOrder
+      }
+
+      const nextOrder = [...normalizedOrder]
+      const [movedId] = nextOrder.splice(sourceIndex, 1)
+      nextOrder.splice(targetIndex, 0, movedId)
+      return nextOrder
+    })
+  }
+
+  const handleExperienceDragStart = (event, id) => {
+    setDraggingExperienceId(id)
+    event.dataTransfer.effectAllowed = 'move'
+    event.dataTransfer.setData('text/plain', id)
+  }
+
+  const handleExperienceDragOver = (event, id) => {
+    event.preventDefault()
+    event.dataTransfer.dropEffect = 'move'
+    setDropTargetExperienceId(id)
+  }
+
+  const handleExperienceDrop = (event, id) => {
+    event.preventDefault()
+    const sourceId = draggingExperienceId || event.dataTransfer.getData('text/plain')
+    moveExperience(sourceId, id)
+    setDraggingExperienceId(null)
+    setDropTargetExperienceId(null)
+  }
+
+  const handleExperienceDragEnd = () => {
+    setDraggingExperienceId(null)
+    setDropTargetExperienceId(null)
   }
 
   const backToProjects = () => {
@@ -950,8 +1293,27 @@ function App() {
                     </div>
                   ))}
                 </article>
-                <div className="courses-panel">
-                  <p>{t.education.courses}</p>
+                <div className="education-showcase">
+                  <article className="courses-panel">
+                    <h3>{getLabeledTextParts(t.education.courses)?.label.replace(/[：:]$/, '')}</h3>
+                    <div className="course-tags">
+                      {getCourseItems(t.education.courses).map((course) => (
+                        <span className="course-tag" key={course}>{course}</span>
+                      ))}
+                    </div>
+                  </article>
+                  <div className="education-extra-grid">
+                    {t.education.extras.map((item) => (
+                      <article className="card education-extra-card" key={item.title}>
+                        <h3>{item.title}</h3>
+                        <ul className="education-line-list">
+                          {item.lines.map((line) => (
+                            <li key={line}><EmphasizedText text={line} /></li>
+                          ))}
+                        </ul>
+                      </article>
+                    ))}
+                  </div>
                 </div>
               </div>
             </section>
@@ -960,30 +1322,68 @@ function App() {
               <div className="section-inner">
                 <SectionTitle>{t.sections.experience}</SectionTitle>
                 <div className="experience-list">
-                  {t.experiences.map((experience) => (
-                    <article className="card highlight-card" key={`${experience.time}-${experience.company}`}>
-                      <div className="experience-head">
-                        <div className="experience-meta">
-                          <span>{experience.time}</span>
-                          <span>{experience.company}</span>
-                          <span>{experience.position}</span>
-                        </div>
-                        <a
-                          className="action-button secondary-action"
-                          href={experience.certificateHref}
-                          target="_blank"
-                          rel="noreferrer"
+                  {orderedExperiences.map((experience) => {
+                    const experienceId = getExperienceId(experience)
+
+                    return (
+                      <article
+                        className={[
+                          'card',
+                          'highlight-card',
+                          'experience-card',
+                          draggingExperienceId === experienceId ? 'is-dragging' : '',
+                          dropTargetExperienceId === experienceId && draggingExperienceId !== experienceId
+                            ? 'is-drop-target'
+                            : '',
+                        ].filter(Boolean).join(' ')}
+                        key={experienceId}
+                        onDragOver={(event) => handleExperienceDragOver(event, experienceId)}
+                        onDrop={(event) => handleExperienceDrop(event, experienceId)}
+                      >
+                        <button
+                          className="drag-handle"
+                          type="button"
+                          draggable
+                          aria-label={language === 'zh' ? '拖动实习经历排序' : 'Drag to reorder experience'}
+                          title={language === 'zh' ? '拖动排序' : 'Drag to reorder'}
+                          onDragStart={(event) => handleExperienceDragStart(event, experienceId)}
+                          onDragEnd={handleExperienceDragEnd}
                         >
-                          {t.certificateButton}
-                        </a>
-                      </div>
-                      <div className="detail-list">
-                        {experience.details.map((detail) => (
-                          <p key={detail}><EmphasizedText text={detail} /></p>
-                        ))}
-                      </div>
-                    </article>
-                  ))}
+                          <span aria-hidden="true">⋮⋮</span>
+                        </button>
+                        <div className="experience-head">
+                          <div className="experience-meta">
+                            <span>{experience.time}</span>
+                            <span>{experience.company}</span>
+                            <span>{experience.position}</span>
+                          </div>
+                          {experience.certificateHref ? (
+                            <a
+                              className="action-button secondary-action"
+                              href={experience.certificateHref}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {t.certificateButton}
+                            </a>
+                          ) : (
+                            <button
+                              className="action-button secondary-action"
+                              type="button"
+                              onClick={() => setCertificateNoticeOpen(true)}
+                            >
+                              {t.certificateButton}
+                            </button>
+                          )}
+                        </div>
+                        <div className="detail-list">
+                          {experience.details.map((detail) => (
+                            <DetailText text={detail} key={detail} />
+                          ))}
+                        </div>
+                      </article>
+                    )
+                  })}
                 </div>
               </div>
             </section>
@@ -992,8 +1392,31 @@ function App() {
               <div className="section-inner">
                 <SectionTitle>{t.sections.projects}</SectionTitle>
                 <div className="project-grid">
-                  {t.projects.map((project) => (
-                    <article className="card project-card" key={project.slug}>
+                  {orderedProjects.map((project) => (
+                    <article
+                      className={[
+                        'card',
+                        'project-card',
+                        draggingProjectSlug === project.slug ? 'is-dragging' : '',
+                        dropTargetProjectSlug === project.slug && draggingProjectSlug !== project.slug
+                          ? 'is-drop-target'
+                          : '',
+                      ].filter(Boolean).join(' ')}
+                      key={project.slug}
+                      onDragOver={(event) => handleProjectDragOver(event, project.slug)}
+                      onDrop={(event) => handleProjectDrop(event, project.slug)}
+                    >
+                      <button
+                        className="drag-handle"
+                        type="button"
+                        draggable
+                        aria-label={language === 'zh' ? '拖动项目经历排序' : 'Drag to reorder project'}
+                        title={language === 'zh' ? '拖动排序' : 'Drag to reorder'}
+                        onDragStart={(event) => handleProjectDragStart(event, project.slug)}
+                        onDragEnd={handleProjectDragEnd}
+                      >
+                        <span aria-hidden="true">⋮⋮</span>
+                      </button>
                       <div className="project-card-head">
                         <ProjectCardHeading heading={project.heading} />
                         <button
@@ -1006,7 +1429,7 @@ function App() {
                       </div>
                       <div className="detail-list">
                         {project.details.map((detail) => (
-                          <p key={detail}><EmphasizedText text={detail} /></p>
+                          <DetailText text={detail} key={detail} />
                         ))}
                       </div>
                     </article>
@@ -1028,14 +1451,6 @@ function App() {
               </div>
             </section>
 
-            <section className="section" id="other">
-              <div className="section-inner">
-                <SectionTitle>{t.sections.other}</SectionTitle>
-                <article className="card simple-card">
-                  <p><EmphasizedText text={t.other} /></p>
-                </article>
-              </div>
-            </section>
 
           </>
         )}
@@ -1044,6 +1459,12 @@ function App() {
       <footer className="site-footer">
         <p>{t.footer}</p>
       </footer>
+
+      <CertificateNoticeModal
+        isOpen={certificateNoticeOpen}
+        labels={t}
+        onClose={() => setCertificateNoticeOpen(false)}
+      />
     </div>
   )
 }
