@@ -4292,3 +4292,355 @@ main,
     font-size: 13px;
   }
 }
+/* Mobile layout stabilization */
+@media (max-width: 720px) {
+  html,
+  body,
+  #root,
+  .site {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .site {
+    --fs-body: 14px;
+    --fs-card-title: 14.5px;
+    --fs-section-title: 23px;
+  }
+
+  .site-header {
+    height: 116px;
+  }
+
+  .site-header__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 38px 36px 18px;
+    gap: 4px 12px;
+    width: min(100% - 24px, 1280px);
+    height: 116px;
+    padding: 8px 0 7px;
+  }
+
+  .site-header__brand {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    height: 38px;
+    min-width: 0;
+    font-size: 20px;
+  }
+
+  .site-header__right {
+    display: contents;
+  }
+
+  .site-header__lang {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    width: auto;
+    min-width: 52px;
+    height: 36px;
+    padding: 0 13px;
+    font-size: 14px;
+  }
+
+  .site-header__nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    justify-content: flex-start;
+    gap: 18px;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 2px 3px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-header__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-header__nav a {
+    flex: 0 0 auto;
+    height: 33px;
+    padding: 0;
+    font-size: 14.5px;
+  }
+
+  .site-header__updated {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: end;
+    max-width: 100%;
+    height: 18px;
+    overflow: hidden;
+    color: rgba(31, 41, 51, 0.78);
+    font-size: 11.5px;
+    line-height: 18px;
+    text-align: right;
+    text-overflow: ellipsis;
+  }
+
+  .hero-section {
+    min-height: 224px;
+    padding-top: 116px !important;
+    background-position: center top !important;
+  }
+
+  .section,
+  .home-about-section {
+    padding: 28px 14px;
+  }
+
+  .section,
+  .home-section {
+    scroll-margin-top: 126px;
+  }
+
+  .section-inner,
+  .home-about-section .section-inner,
+  .detail-page .section-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .section-title {
+    margin-bottom: 14px;
+    font-size: var(--fs-section-title);
+    line-height: 1.2;
+  }
+
+  .section-title::after {
+    display: block;
+    margin-top: 9px;
+  }
+
+  .home-about-layout {
+    grid-template-columns: 96px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    gap: 12px 14px !important;
+    width: 100%;
+    min-height: 0;
+    padding: 14px !important;
+  }
+
+  .home-about-layout .profile-panel {
+    grid-column: 1;
+    grid-row: 1;
+    width: 96px !important;
+    max-width: 96px !important;
+    align-self: start;
+  }
+
+  .home-about-copy,
+  .basic-info-list {
+    display: grid !important;
+  }
+
+  .home-about-copy {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .basic-info-list {
+    grid-column: 2;
+    grid-row: 1;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .basic-info-list > p,
+  .basic-info-list > p:nth-of-type(1),
+  .basic-info-list > p:nth-of-type(2),
+  .basic-info-list > p:nth-of-type(3) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    align-self: auto !important;
+    min-width: 0;
+    white-space: normal !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .basic-info-list p {
+    font-size: 14px !important;
+    line-height: 1.38 !important;
+  }
+
+  .message-box {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    grid-template-columns: 1fr !important;
+    width: 100%;
+    max-width: none;
+    margin-top: 12px;
+    padding: 11px;
+  }
+
+  .message-box textarea {
+    min-height: 86px;
+    height: 86px;
+  }
+
+  .message-submit {
+    grid-column: 1;
+    justify-self: end;
+    min-height: 36px;
+    padding: 8px 14px;
+  }
+
+  .message-status {
+    grid-column: 1;
+  }
+
+  .card,
+  .courses-panel {
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .education-card {
+    padding: 0;
+  }
+
+  .education-row {
+    grid-template-columns: 1fr !important;
+    gap: 5px;
+    padding: 14px 15px;
+  }
+
+  .course-tag {
+    max-width: 100%;
+    font-size: 13.5px;
+    line-height: 1.25;
+  }
+
+  .core-advantages-grid,
+  .education-extra-grid,
+  .project-grid,
+  .skills-grid,
+  .detail-media-grid,
+  .file-grid,
+  .resource-grid-reports,
+  .project-detail-sections {
+    grid-template-columns: 1fr !important;
+  }
+
+  .experience-card,
+  .project-card {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 10px 12px;
+    padding: 14px;
+  }
+
+  .drag-handle {
+    width: 22px;
+    min-height: 46px;
+  }
+
+  .experience-head,
+  .project-card-head {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    align-items: start;
+  }
+
+  .experience-meta {
+    display: grid;
+    gap: 5px;
+  }
+
+  .project-heading,
+  .detail-card .project-heading {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    justify-content: stretch;
+  }
+
+  .project-card .project-heading-time,
+  .project-card .project-heading-title,
+  .project-card .project-heading-role,
+  .project-heading-time,
+  .project-heading-title,
+  .project-heading-role {
+    justify-self: start;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .experience-head .secondary-action,
+  .project-detail-button {
+    grid-column: auto !important;
+    justify-self: start;
+    margin-top: 4px;
+  }
+
+  .detail-page.section {
+    padding: 130px 14px 30px !important;
+  }
+
+  .detail-card h1,
+  .detail-card .project-heading {
+    font-size: 21px !important;
+    line-height: 1.28;
+  }
+
+  .detail-row,
+  .detail-list p {
+    grid-template-columns: 1fr !important;
+  }
+
+  .media-card img,
+  .media-frame img,
+  .image-preview-frame img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 390px) {
+  .site-header__inner {
+    width: min(100% - 18px, 1280px);
+  }
+
+  .site-header__nav {
+    gap: 14px;
+  }
+
+  .site-header__nav a {
+    font-size: 13.5px;
+  }
+
+  .site-header__brand {
+    font-size: 18px;
+  }
+
+  .home-about-layout {
+    grid-template-columns: 82px minmax(0, 1fr) !important;
+    gap: 10px 12px !important;
+    padding: 12px !important;
+  }
+
+  .home-about-layout .profile-panel {
+    width: 82px !important;
+    max-width: 82px !important;
+  }
+
+  .basic-info-list p {
+    font-size: 13.2px !important;
+  }
+
+  .section,
+  .home-about-section {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
