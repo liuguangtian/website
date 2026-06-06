@@ -58,6 +58,12 @@ const content = {
       ],
       courses:
         '主修课程：Python 编程、C++、机器学习、深度学习入门、动手学深度学习、电路理论、电力电子技术、电工学、半导体物理与器件、风力发电系统与控制技术、风力机原理、光伏器件与系统、太阳能工程、智能电网、电力系统、控制工程基础、储能原理与技术',
+      coreAdvantages: [
+        '1.AI+新能源背景：具备风电/光伏、电力系统、电力电子及储能技术基础，熟悉新能源发电与电气控制相关知识。',
+        '2.深度学习理论：熟悉 PyTorch 深度学习框架及 NumPy、Pandas 数据处理工具，具备模型开发、训练与时序预测分析经验。',
+        '3.优化建模与调度算法：熟练使用 MATLAB / YALMIP / GUROBI 构建并求解 MILP 等优化模型，熟悉随机优化、鲁棒优化与机会约束等不确定性建模方法，具备储能配置、运行调度及电力市场场景下的优化决策建模经验。',
+        '4.新能源数字化产品全栈开发：具备新能源数字化产品全栈开发经验，目前正在开发“面向风电场的AI功率预测与风机运行分析平台”。',
+      ],
       extras: [
         {
           title: '科研成果',
@@ -301,6 +307,12 @@ const content = {
       ],
       courses:
         'Major Courses: Python Programming, C++, Machine Learning, Introduction to Deep Learning, Dive into Deep Learning, Circuit Theory, Power Electronics, Electrical Engineering, Semiconductor Physics and Devices, Wind Power Generation Systems and Control Technology, Principles of Wind Turbines, Photovoltaic Devices and Systems, Solar Energy Engineering, Smart Grid, Power Systems, Fundamentals of Control Engineering, Energy Storage Principles and Technology',
+      coreAdvantages: [
+        '1. AI + renewable energy background: foundation in wind/PV, power systems, power electronics, and energy storage; familiar with renewable generation and electrical control.',
+        '2. Deep learning theory: familiar with PyTorch, NumPy, and Pandas; experienced in model development, training, and time-series forecasting analysis.',
+        '3. Optimization modeling and dispatch algorithms: skilled in MATLAB / YALMIP / GUROBI for building and solving MILP optimization models; familiar with stochastic optimization, robust optimization, and chance-constrained uncertainty modeling; experienced in energy storage configuration, operational dispatch, and power-market decision modeling.',
+        '4. Full-stack development for renewable digital products: experienced in full-stack development for renewable energy digital products; currently developing an AI wind-power forecasting and turbine operation analysis platform for wind farms.',
+      ],
       extras: [
         {
           title: 'Research Output',
@@ -1038,6 +1050,9 @@ function App() {
   const [selectedProjectSlug, setSelectedProjectSlug] = useState(() => getProjectSlugFromHash())
   const [photoLoaded, setPhotoLoaded] = useState(true)
   const [certificateNoticeOpen, setCertificateNoticeOpen] = useState(false)
+  const [messageText, setMessageText] = useState('')
+  const [messageStatus, setMessageStatus] = useState('')
+  const [messageSending, setMessageSending] = useState(false)
   const [projectOrder, setProjectOrder] = useState(getStoredProjectOrder)
   const [experienceOrder, setExperienceOrder] = useState(getStoredExperienceOrder)
   const [draggingProjectSlug, setDraggingProjectSlug] = useState(null)
@@ -1104,6 +1119,50 @@ function App() {
 
   const toggleLanguage = () => {
     setLanguage((current) => (current === 'zh' ? 'en' : 'zh'))
+  }
+
+  const submitMessage = async () => {
+    const normalizedMessage = messageText.trim()
+
+    if (!normalizedMessage) {
+      setMessageStatus(language === 'zh' ? '请先输入留言。' : 'Please enter a message first.')
+      return
+    }
+
+    if (messageSending) {
+      return
+    }
+
+    setMessageSending(true)
+    setMessageStatus(language === 'zh' ? '正在发送...' : 'Sending...')
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/18832060103@163.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: language === 'zh' ? '个人网站访客' : 'Personal website visitor',
+          message: normalizedMessage,
+          _subject: language === 'zh' ? '个人网站留言' : 'Message from personal website',
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Message request failed')
+      }
+
+      setMessageText('')
+      setMessageStatus(language === 'zh' ? '留言已发送。' : 'Message sent.')
+    } catch {
+      setMessageStatus(language === 'zh' ? '发送失败，请稍后再试。' : 'Failed to send. Please try again later.')
+    } finally {
+      setMessageSending(false)
+    }
   }
 
   const goToSection = (event, id) => {
@@ -1223,25 +1282,27 @@ function App() {
 
   return (
     <div className="site" lang={language === 'zh' ? 'zh-CN' : 'en'}>
-      <header className="topbar">
-        <div className="nav-shell">
-          <p className="updated-at">{t.updatedAt}</p>
-          <button className="language-toggle" type="button" onClick={toggleLanguage}>
-            {t.languageButton}
-          </button>
-          <a className="brand-link" href="#home" onClick={(event) => goToSection(event, 'home')}>
+      <header className="site-header">
+        <div className="site-header__inner">
+          <a className="site-header__brand" href="#home" onClick={(event) => goToSection(event, 'home')}>
             {t.name}
           </a>
-          <nav
-            className="main-nav"
-            aria-label={language === 'zh' ? '主导航' : 'Main navigation'}
-          >
-            {t.nav.map((item) => (
-              <a key={item.id} href={`#${item.id}`} onClick={(event) => goToSection(event, item.id)}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
+          <div className="site-header__right">
+            <nav
+              className="site-header__nav"
+              aria-label={language === 'zh' ? '主导航' : 'Main navigation'}
+            >
+              {t.nav.map((item) => (
+                <a key={item.id} href={`#${item.id}`} onClick={(event) => goToSection(event, item.id)}>
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            <p className="site-header__updated">{t.updatedAt}</p>
+            <button className="site-header__lang" type="button" onClick={toggleLanguage}>
+              {t.languageButton}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -1250,36 +1311,64 @@ function App() {
           <ProjectDetail labels={t} project={selectedProject} onBack={backToProjects} />
         ) : (
           <>
-            <section className="hero-section section" id="home">
-              <div className="section-inner hero-layout">
-                <div className="hero-copy">
-                  <h1>{t.name}</h1>
-                  <p className="hero-role">{t.role}</p>
-                  <div
-                    className="hero-links"
-                    aria-label={language === 'zh' ? '基础信息' : 'Basic information'}
-                  >
-                    <a href={t.phoneHref}>{t.phone}</a>
-                    <a href="mailto:18832060103@163.com">{t.email}</a>
+            <section className="home-section" id="home">
+              <div className="hero-section">
+                <div className="section-inner hero-layout">
+                  <div className="hero-copy">
+                    <h1>{t.name}</h1>
+                    <p className="hero-role">{t.role}</p>
                   </div>
                 </div>
-                <div className="profile-panel">
-                  {photoLoaded ? (
-                    <img
-                      className="profile-photo"
-                      src={publicAsset('your-photo.png')}
-                      alt={language === 'zh' ? `${t.name}照片` : `${t.name} profile`}
-                      onError={() => setPhotoLoaded(false)}
-                    />
-                  ) : (
-                    <div className="profile-mark" aria-hidden="true">
-                      {language === 'zh' ? '刘' : 'GL'}
+              </div>
+
+              <div className="section home-about-section">
+                <div className="section-inner">
+                  <SectionTitle>{language === 'zh' ? '基本信息' : 'About Me'}</SectionTitle>
+                  <div className="home-about-layout">
+                    <div className="profile-panel">
+                      {photoLoaded ? (
+                        <img
+                          className="profile-photo"
+                          src={publicAsset('your-photo.png')}
+                          alt={language === 'zh' ? `${t.name}照片` : `${t.name} profile`}
+                          onError={() => setPhotoLoaded(false)}
+                        />
+                      ) : (
+                        <div className="profile-mark" aria-hidden="true">
+                          {language === 'zh' ? '刘' : 'GL'}
+                        </div>
+                      )}
                     </div>
-                  )}
+                    <div className="home-about-copy">
+                      <div
+                        className="basic-info-list"
+                        aria-label={language === 'zh' ? '基础信息' : 'Basic information'}
+                      >
+                        <p><strong>{language === 'zh' ? '姓名：' : 'Name: '}</strong>{t.name}</p>
+                        <p><a href={t.phoneHref}>{t.phone}</a></p>
+                        <p><a href="mailto:18832060103@163.com">{t.email}</a></p>
+                        <div className="message-box">
+                          <p className="message-box-title">{language === 'zh' ? '留言区' : 'Message'}</p>
+                          <textarea
+                            value={messageText}
+                            placeholder={language === 'zh' ? '可以直接留言哦~' : 'Leave a message here'}
+                            aria-label={language === 'zh' ? '留言内容' : 'Message content'}
+                            onChange={(event) => {
+                              setMessageText(event.target.value)
+                              setMessageStatus('')
+                            }}
+                          />
+                          <button className="message-submit" type="button" onClick={submitMessage} disabled={messageSending}>
+                            {messageSending ? (language === 'zh' ? '发送中' : 'Sending') : (language === 'zh' ? '确认' : 'Send')}
+                          </button>
+                          {messageStatus ? <p className="message-status">{messageStatus}</p> : null}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
-
             <section className="section" id="education">
               <div className="section-inner">
                 <SectionTitle>{t.sections.education}</SectionTitle>
@@ -1299,6 +1388,14 @@ function App() {
                     <div className="course-tags">
                       {getCourseItems(t.education.courses).map((course) => (
                         <span className="course-tag" key={course}>{course}</span>
+                      ))}
+                    </div>
+                  </article>
+                  <article className="card core-advantages-card">
+                    <h3>{language === 'zh' ? '核心优势' : 'Core Strengths'}</h3>
+                    <div className="core-advantages-grid">
+                      {t.education.coreAdvantages.map((advantage) => (
+                        <p className="core-advantage-item" key={advantage}><EmphasizedText text={advantage} /></p>
                       ))}
                     </div>
                   </article>
