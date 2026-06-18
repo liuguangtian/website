@@ -243,6 +243,28 @@ const content = {
             },
           ],
         },
+      },
+      {
+        slug: 'wind-turbine-simulation',
+        heading:
+          '2025.01-2025.06 风力机仿真-结构变形对超长柔性叶片气动弹性影响分析 负责人',
+        details: [
+          '1.项目介绍：面向风机叶片大型化与柔性化趋势，研究超长柔性叶片在运行过程中的弯曲、扭转变形及其对气动性能和整机性能的影响。',
+          '2.项目职责：基于 OpenFAST 多物理场仿真平台完成风力机叶片建模与可靠性验证；对 5MW、10MW、22MW 不同展长柔性叶片在额定风速下的动态变形进行仿真分析；进一步基于 IEA-22-280-RWT 风力机，研究叶片结构变形对气动载荷、功率输出及整机性能的影响。',
+          '3.项目成果：完成毕业论文《结构变形对超长柔性风电叶片气动特性的影响研究》。',
+        ],
+        showcase: {
+          reportsTitle: '毕业论文',
+          reports: [
+            {
+              label: '《结构变形对超长柔性风电叶片气动特性的影响研究》',
+              href: publicAsset('wind-turbine-simulation/thesis.pdf'),
+              meta: 'PDF',
+              note: '毕业论文',
+              path: 'public/wind-turbine-simulation/thesis.pdf',
+            },
+          ],
+        },
       }
     ],
     skills: [
@@ -489,6 +511,29 @@ const content = {
               meta: 'Host App',
               note: 'Control program, host-side UI, communication debugging, and data exchange code',
               path: 'public/dexhand/source/Dexhand.zip',
+            },
+          ],
+        },
+      },
+      {
+        slug: 'wind-turbine-simulation',
+        heading:
+          '2025.01-2025.06 Wind Turbine Simulation - Influence of Structural Deformation on the Aeroelastic Performance of Ultra-Long Flexible Blades Lead',
+        details: [
+          '1. Project introduction: studied bending and torsional deformation of ultra-long flexible blades during operation, and analyzed their influence on aerodynamic performance and overall wind turbine performance under the trend of larger and more flexible wind turbine blades.',
+          '2. Project responsibilities: built wind turbine blade models and completed reliability verification based on the OpenFAST multi-physics simulation platform; simulated dynamic deformation of 5MW, 10MW, and 22MW flexible blades with different spans under rated wind speed; further studied the influence of blade structural deformation on aerodynamic loads, power output, and overall turbine performance based on the IEA-22-280-RWT wind turbine.',
+          '3. Project outcomes: completed the graduation thesis "Research on the Influence of Structural Deformation on the Aerodynamic Characteristics of Ultra-Long Flexible Wind Turbine Blades".',
+        ],
+        showcase: {
+          reportsTitle: 'Graduation Thesis',
+          reports: [
+            {
+              label:
+                'Research on the Influence of Structural Deformation on the Aerodynamic Characteristics of Ultra-Long Flexible Wind Turbine Blades',
+              href: publicAsset('wind-turbine-simulation/thesis.pdf'),
+              meta: 'PDF',
+              note: 'Graduation thesis',
+              path: 'public/wind-turbine-simulation/thesis.pdf',
             },
           ],
         },
@@ -946,6 +991,7 @@ function ProjectDetail({ labels, project, onBack }) {
   const [previewReport, setPreviewReport] = useState(null)
   const [previewImage, setPreviewImage] = useState(null)
   const [pendingDownload, setPendingDownload] = useState(null)
+  const showcaseMedia = project.showcase?.media ?? []
 
   useEffect(() => {
     if (!previewReport && !previewImage && !pendingDownload) {
@@ -995,16 +1041,18 @@ function ProjectDetail({ labels, project, onBack }) {
         </article>
         {project.showcase ? (
           <div className="project-detail-sections">
-            <section className="detail-block">
-              <div className="detail-block-head">
-                <h2>{project.showcase.mediaTitle ?? labels.mediaAreaTitle}</h2>
-              </div>
-              <div className="detail-media-grid">
-                {project.showcase.media.map((item) => (
-                  <ProjectMedia item={item} labels={labels} onPreview={setPreviewImage} key={item.title} />
-                ))}
-              </div>
-            </section>
+            {showcaseMedia.length ? (
+              <section className="detail-block">
+                <div className="detail-block-head">
+                  <h2>{project.showcase.mediaTitle ?? labels.mediaAreaTitle}</h2>
+                </div>
+                <div className="detail-media-grid">
+                  {showcaseMedia.map((item) => (
+                    <ProjectMedia item={item} labels={labels} onPreview={setPreviewImage} key={item.title} />
+                  ))}
+                </div>
+              </section>
+            ) : null}
             <ReportSection
               title={project.showcase.reportsTitle ?? labels.reportAreaTitle}
               items={project.showcase.reports ?? project.showcase.files}
